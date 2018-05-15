@@ -1,0 +1,120 @@
+* {
+  font-size: 0.24rem;
+}
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+body,
+div,
+dt,
+dl,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+form,
+a,
+p,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: '\5FAE\8F6F\96C5\9ED1', consolas;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+img {
+  border: none;
+  display: block;
+}
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d6f1e8;
+}
+.container .topbar {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.2rem;
+  background: #53a487;
+  line-height: 1rem;
+}
+.container .topbar span {
+  color: #fff;
+  font-size: 0.3rem;
+}
+.container .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
+#app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#step5 {
+  z-index: 1;
+}
+#step5 p {
+  margin: 0.3rem 0.3rem 0.1rem;
+  color: #3b6b5a;
+}
+#step5 textarea {
+  width: 100%;
+  border: none;
+}
+#step5 textarea:focus {
+  outline: none;
+}
+#step5 .full-btn {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  font-size: 0.35rem;
+  margin: 0.3rem 0.3rem 0.1rem;
+  background: #d59323;
+  text-align: center;
+  border-radius: 0.3rem;
+  color: #fff;
+}
