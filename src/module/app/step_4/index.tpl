@@ -12,5 +12,5 @@
       </div>
       <p>预计耗时</p>
       <p>3天2小时（剩余约2天2小时）</p>
-      <div class="full-btn" data-route="/main">提前完成</div>
+      <div class="full-btn" data-route="/">提前完成</div>
     </div>

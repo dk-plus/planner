@@ -1,9 +1,9 @@
 const $ = require('jquery');
 const artT = require('art-template/dist/template.js');
-const Rem = require('./lib/rem.js');
+const Rem = require('../../lib/rem.js');
 
-const Route = require('./lib/route.js');
-const Request = require('./lib/request.js');
+const Route = require('../../lib/route.js');
+const Request = require('../../lib/request.js');
 
 require('./index.less');
 
@@ -20,7 +20,7 @@ const Module = (() => {
       obj.data = data;
       render();
     });
-    Route.init();
+    // Route.init();
   }
 
   function render() {

@@ -4,6 +4,7 @@ const Rem = require('../../lib/rem.js');
 
 const Route = require('../../lib/route.js');
 const Request = require('../../lib/request.js');
+const Storage = require('../../lib/storage.js');
 
 require('./index.less');
 
@@ -17,7 +18,13 @@ const Module = (() => {
   _e.init = () => {
     Rem.init();
     render();
-    Route.init();
+    $('body').on('click', '[data-route]', store);
+  }
+
+  function store() {
+    Storage.set('abc', 'abc');
+    console.log(localStorage);
+    $('body').off('click', '[data-route]', store);
   }
 
   function render() {

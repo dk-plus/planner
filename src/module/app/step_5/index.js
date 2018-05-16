@@ -20,7 +20,7 @@ const Module = (() => {
       obj.data = data;
       render();
     });
-    Route.init();
+    // Route.init();
   }
 
   function render() {

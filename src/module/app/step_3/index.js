@@ -4,6 +4,7 @@ const Rem = require('../../lib/rem.js');
 
 const Route = require('../../lib/route.js');
 const Request = require('../../lib/request.js');
+const Storage = require('../../lib/storage.js');
 
 require('./index.less');
 
@@ -12,15 +13,31 @@ const Module = (() => {
     wrapper: '#app'
   };
 
-  let obj = {};
+  let obj = {
+    data: []
+  };
 
   _e.init = () => {
+    setLength(Number(localStorage.getItem('stage')));
     Rem.init();
-    Request.get('/task/select', (data) => {
-      obj.data = data;
+    setTimeout(() => {
       render();
-    });
-    Route.init();
+    },0);
+    $('body').on('click', '[data-route]', store);
+  }
+
+  function store() {
+    Storage.set('ccc', 'ccc');
+    console.log(localStorage);
+    Storage.clear();
+    console.log(localStorage);
+    $('body').off('click', '[data-route]', store);
+  }
+
+  function setLength(length) {
+    for (let i = 0; i<length; i++) {
+      obj.data.push(1)
+    }
   }
 
   function render() {

@@ -63,9 +63,8 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10436,30 +10435,19 @@ return jQuery;
 
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var App = __webpack_require__(34);
+var App = __webpack_require__(2);
 !function () {
   App.init();
 }();
 
 /***/ }),
-
-/***/ 3:
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_RESULT__;/*!art-template - Template Engine | http://aui.github.com/artTemplate/*/
-!function(){function a(a){return a.replace(t,"").replace(u,",").replace(v,"").replace(w,"").replace(x,"").split(y)}function b(a){return"'"+a.replace(/('|\\)/g,"\\$1").replace(/\r/g,"\\r").replace(/\n/g,"\\n")+"'"}function c(c,d){function e(a){return m+=a.split(/\n/).length-1,k&&(a=a.replace(/\s+/g," ").replace(/<!--[\w\W]*?-->/g,"")),a&&(a=s[1]+b(a)+s[2]+"\n"),a}function f(b){var c=m;if(j?b=j(b,d):g&&(b=b.replace(/\n/g,function(){return m++,"$line="+m+";"})),0===b.indexOf("=")){var e=l&&!/^=[=#]/.test(b);if(b=b.replace(/^=[=#]?|[\s;]*$/g,""),e){var f=b.replace(/\s*\([^\)]+\)/,"");n[f]||/^(include|print)$/.test(f)||(b="$escape("+b+")")}else b="$string("+b+")";b=s[1]+b+s[2]}return g&&(b="$line="+c+";"+b),r(a(b),function(a){if(a&&!p[a]){var b;b="print"===a?u:"include"===a?v:n[a]?"$utils."+a:o[a]?"$helpers."+a:"$data."+a,w+=a+"="+b+",",p[a]=!0}}),b+"\n"}var g=d.debug,h=d.openTag,i=d.closeTag,j=d.parser,k=d.compress,l=d.escape,m=1,p={$data:1,$filename:1,$utils:1,$helpers:1,$out:1,$line:1},q="".trim,s=q?["$out='';","$out+=",";","$out"]:["$out=[];","$out.push(",");","$out.join('')"],t=q?"$out+=text;return $out;":"$out.push(text);",u="function(){var text=''.concat.apply('',arguments);"+t+"}",v="function(filename,data){data=data||$data;var text=$utils.$include(filename,data,$filename);"+t+"}",w="'use strict';var $utils=this,$helpers=$utils.$helpers,"+(g?"$line=0,":""),x=s[0],y="return new String("+s[3]+");";r(c.split(h),function(a){a=a.split(i);var b=a[0],c=a[1];1===a.length?x+=e(b):(x+=f(b),c&&(x+=e(c)))});var z=w+x+y;g&&(z="try{"+z+"}catch(e){throw {filename:$filename,name:'Render Error',message:e.message,line:$line,source:"+b(c)+".split(/\\n/)[$line-1].replace(/^\\s+/,'')};}");try{var A=new Function("$data","$filename",z);return A.prototype=n,A}catch(a){throw a.temp="function anonymous($data,$filename) {"+z+"}",a}}var d=function(a,b){return"string"==typeof b?q(b,{filename:a}):g(a,b)};d.version="3.0.0",d.config=function(a,b){e[a]=b};var e=d.defaults={openTag:"<%",closeTag:"%>",escape:!0,cache:!0,compress:!1,parser:null},f=d.cache={};d.render=function(a,b){return q(a)(b)};var g=d.renderFile=function(a,b){var c=d.get(a)||p({filename:a,name:"Render Error",message:"Template not found"});return b?c(b):c};d.get=function(a){var b;if(f[a])b=f[a];else if("object"==typeof document){var c=document.getElementById(a);if(c){var d=(c.value||c.innerHTML).replace(/^\s*|\s*$/g,"");b=q(d,{filename:a})}}return b};var h=function(a,b){return"string"!=typeof a&&(b=typeof a,"number"===b?a+="":a="function"===b?h(a.call(a)):""),a},i={"<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","&":"&#38;"},j=function(a){return i[a]},k=function(a){return h(a).replace(/&(?![\w#]+;)|[<>"']/g,j)},l=Array.isArray||function(a){return"[object Array]"==={}.toString.call(a)},m=function(a,b){var c,d;if(l(a))for(c=0,d=a.length;c<d;c++)b.call(a,a[c],c,a);else for(c in a)b.call(a,a[c],c)},n=d.utils={$helpers:{},$include:g,$string:h,$escape:k,$each:m};d.helper=function(a,b){o[a]=b};var o=d.helpers=n.$helpers;d.onerror=function(a){var b="Template Error\n\n";for(var c in a)b+="<"+c+">\n"+a[c]+"\n\n";"object"==typeof console&&console.error(b)};var p=function(a){return d.onerror(a),function(){return"{Template Error}"}},q=d.compile=function(a,b){function d(c){try{return new i(c,h)+""}catch(d){return b.debug?p(d)():(b.debug=!0,q(a,b)(c))}}b=b||{};for(var g in e)void 0===b[g]&&(b[g]=e[g]);var h=b.filename;try{var i=c(a,b)}catch(a){return a.filename=h||"anonymous",a.name="Syntax Error",p(a)}return d.prototype=i.prototype,d.toString=function(){return i.toString()},h&&b.cache&&(f[h]=d),d},r=n.$each,s="break,case,catch,continue,debugger,default,delete,do,else,false,finally,for,function,if,in,instanceof,new,null,return,switch,this,throw,true,try,typeof,var,void,while,with,abstract,boolean,byte,char,class,const,double,enum,export,extends,final,float,goto,implements,import,int,interface,long,native,package,private,protected,public,short,static,super,synchronized,throws,transient,volatile,arguments,let,yield,undefined",t=/\/\*[\w\W]*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|"(?:[^"\\]|\\[\w\W])*"|'(?:[^'\\]|\\[\w\W])*'|\s*\.\s*[$\w\.]+/g,u=/[^\w$]+/g,v=new RegExp(["\\b"+s.replace(/,/g,"\\b|\\b")+"\\b"].join("|"),"g"),w=/^\d[^,]*|,\d[^,]*/g,x=/^,+|,+$/g,y=/^$|,+/;e.openTag="{{",e.closeTag="}}";var z=function(a,b){var c=b.split(":"),d=c.shift(),e=c.join(":")||"";return e&&(e=", "+e),"$helpers."+d+"("+a+e+")"};e.parser=function(a,b){a=a.replace(/^\s/,"");var c=a.split(" "),e=c.shift(),f=c.join(" ");switch(e){case"if":a="if("+f+"){";break;case"else":c="if"===c.shift()?" if("+c.join(" ")+")":"",a="}else"+c+"{";break;case"/if":a="}";break;case"each":var g=c[0]||"$data",h=c[1]||"as",i=c[2]||"$value",j=c[3]||"$index",k=i+","+j;"as"!==h&&(g="[]"),a="$each("+g+",function("+k+"){";break;case"/each":a="});";break;case"echo":a="print("+f+");";break;case"print":case"include":a=e+"("+c.join(",")+");";break;default:if(/^\s*\|\s*[\w\$]/.test(f)){var l=!0;0===a.indexOf("#")&&(a=a.substr(1),l=!1);for(var m=0,n=a.split("|"),o=n.length,p=n[m++];m<o;m++)p=z(p,n[m]);a=(l?"=":"=#")+p}else a=d.helpers[e]?"=#"+e+"("+c.join(",")+");":"="+a}return a}, true?!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(){return d}).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"undefined"!=typeof exports?module.exports=d:this.template=d}();
-
-/***/ }),
-
-/***/ 34:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10471,8 +10459,9 @@ var Rem = __webpack_require__(4);
 
 var Route = __webpack_require__(5);
 var Request = __webpack_require__(6);
+var Storage = __webpack_require__(43);
 
-__webpack_require__(35);
+__webpack_require__(7);
 
 var Module = function () {
   var _e = {
@@ -10491,7 +10480,7 @@ var Module = function () {
   };
 
   function render() {
-    var tpl = __webpack_require__(36)();
+    var tpl = __webpack_require__(8)();
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
@@ -10502,30 +10491,15 @@ var Module = function () {
 module.exports = Module;
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 35:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 36:
-/***/ (function(module, exports) {
-
-module.exports = function (obj) {
-obj || (obj = {});
-var __t, __p = '';
-with (obj) {
-__p += '\r\n    <div id="step5" class="container">\r\n      <p>第一阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <div class="full-btn" data-route="/main">返回主界面</div>\r\n    </div>';
-
-}
-return __p
-}
+var __WEBPACK_AMD_DEFINE_RESULT__;/*!art-template - Template Engine | http://aui.github.com/artTemplate/*/
+!function(){function a(a){return a.replace(t,"").replace(u,",").replace(v,"").replace(w,"").replace(x,"").split(y)}function b(a){return"'"+a.replace(/('|\\)/g,"\\$1").replace(/\r/g,"\\r").replace(/\n/g,"\\n")+"'"}function c(c,d){function e(a){return m+=a.split(/\n/).length-1,k&&(a=a.replace(/\s+/g," ").replace(/<!--[\w\W]*?-->/g,"")),a&&(a=s[1]+b(a)+s[2]+"\n"),a}function f(b){var c=m;if(j?b=j(b,d):g&&(b=b.replace(/\n/g,function(){return m++,"$line="+m+";"})),0===b.indexOf("=")){var e=l&&!/^=[=#]/.test(b);if(b=b.replace(/^=[=#]?|[\s;]*$/g,""),e){var f=b.replace(/\s*\([^\)]+\)/,"");n[f]||/^(include|print)$/.test(f)||(b="$escape("+b+")")}else b="$string("+b+")";b=s[1]+b+s[2]}return g&&(b="$line="+c+";"+b),r(a(b),function(a){if(a&&!p[a]){var b;b="print"===a?u:"include"===a?v:n[a]?"$utils."+a:o[a]?"$helpers."+a:"$data."+a,w+=a+"="+b+",",p[a]=!0}}),b+"\n"}var g=d.debug,h=d.openTag,i=d.closeTag,j=d.parser,k=d.compress,l=d.escape,m=1,p={$data:1,$filename:1,$utils:1,$helpers:1,$out:1,$line:1},q="".trim,s=q?["$out='';","$out+=",";","$out"]:["$out=[];","$out.push(",");","$out.join('')"],t=q?"$out+=text;return $out;":"$out.push(text);",u="function(){var text=''.concat.apply('',arguments);"+t+"}",v="function(filename,data){data=data||$data;var text=$utils.$include(filename,data,$filename);"+t+"}",w="'use strict';var $utils=this,$helpers=$utils.$helpers,"+(g?"$line=0,":""),x=s[0],y="return new String("+s[3]+");";r(c.split(h),function(a){a=a.split(i);var b=a[0],c=a[1];1===a.length?x+=e(b):(x+=f(b),c&&(x+=e(c)))});var z=w+x+y;g&&(z="try{"+z+"}catch(e){throw {filename:$filename,name:'Render Error',message:e.message,line:$line,source:"+b(c)+".split(/\\n/)[$line-1].replace(/^\\s+/,'')};}");try{var A=new Function("$data","$filename",z);return A.prototype=n,A}catch(a){throw a.temp="function anonymous($data,$filename) {"+z+"}",a}}var d=function(a,b){return"string"==typeof b?q(b,{filename:a}):g(a,b)};d.version="3.0.0",d.config=function(a,b){e[a]=b};var e=d.defaults={openTag:"<%",closeTag:"%>",escape:!0,cache:!0,compress:!1,parser:null},f=d.cache={};d.render=function(a,b){return q(a)(b)};var g=d.renderFile=function(a,b){var c=d.get(a)||p({filename:a,name:"Render Error",message:"Template not found"});return b?c(b):c};d.get=function(a){var b;if(f[a])b=f[a];else if("object"==typeof document){var c=document.getElementById(a);if(c){var d=(c.value||c.innerHTML).replace(/^\s*|\s*$/g,"");b=q(d,{filename:a})}}return b};var h=function(a,b){return"string"!=typeof a&&(b=typeof a,"number"===b?a+="":a="function"===b?h(a.call(a)):""),a},i={"<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","&":"&#38;"},j=function(a){return i[a]},k=function(a){return h(a).replace(/&(?![\w#]+;)|[<>"']/g,j)},l=Array.isArray||function(a){return"[object Array]"==={}.toString.call(a)},m=function(a,b){var c,d;if(l(a))for(c=0,d=a.length;c<d;c++)b.call(a,a[c],c,a);else for(c in a)b.call(a,a[c],c)},n=d.utils={$helpers:{},$include:g,$string:h,$escape:k,$each:m};d.helper=function(a,b){o[a]=b};var o=d.helpers=n.$helpers;d.onerror=function(a){var b="Template Error\n\n";for(var c in a)b+="<"+c+">\n"+a[c]+"\n\n";"object"==typeof console&&console.error(b)};var p=function(a){return d.onerror(a),function(){return"{Template Error}"}},q=d.compile=function(a,b){function d(c){try{return new i(c,h)+""}catch(d){return b.debug?p(d)():(b.debug=!0,q(a,b)(c))}}b=b||{};for(var g in e)void 0===b[g]&&(b[g]=e[g]);var h=b.filename;try{var i=c(a,b)}catch(a){return a.filename=h||"anonymous",a.name="Syntax Error",p(a)}return d.prototype=i.prototype,d.toString=function(){return i.toString()},h&&b.cache&&(f[h]=d),d},r=n.$each,s="break,case,catch,continue,debugger,default,delete,do,else,false,finally,for,function,if,in,instanceof,new,null,return,switch,this,throw,true,try,typeof,var,void,while,with,abstract,boolean,byte,char,class,const,double,enum,export,extends,final,float,goto,implements,import,int,interface,long,native,package,private,protected,public,short,static,super,synchronized,throws,transient,volatile,arguments,let,yield,undefined",t=/\/\*[\w\W]*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|"(?:[^"\\]|\\[\w\W])*"|'(?:[^'\\]|\\[\w\W])*'|\s*\.\s*[$\w\.]+/g,u=/[^\w$]+/g,v=new RegExp(["\\b"+s.replace(/,/g,"\\b|\\b")+"\\b"].join("|"),"g"),w=/^\d[^,]*|,\d[^,]*/g,x=/^,+|,+$/g,y=/^$|,+/;e.openTag="{{",e.closeTag="}}";var z=function(a,b){var c=b.split(":"),d=c.shift(),e=c.join(":")||"";return e&&(e=", "+e),"$helpers."+d+"("+a+e+")"};e.parser=function(a,b){a=a.replace(/^\s/,"");var c=a.split(" "),e=c.shift(),f=c.join(" ");switch(e){case"if":a="if("+f+"){";break;case"else":c="if"===c.shift()?" if("+c.join(" ")+")":"",a="}else"+c+"{";break;case"/if":a="}";break;case"each":var g=c[0]||"$data",h=c[1]||"as",i=c[2]||"$value",j=c[3]||"$index",k=i+","+j;"as"!==h&&(g="[]"),a="$each("+g+",function("+k+"){";break;case"/each":a="});";break;case"echo":a="print("+f+");";break;case"print":case"include":a=e+"("+c.join(",")+");";break;default:if(/^\s*\|\s*[\w\$]/.test(f)){var l=!0;0===a.indexOf("#")&&(a=a.substr(1),l=!1);for(var m=0,n=a.split("|"),o=n.length,p=n[m++];m<o;m++)p=z(p,n[m]);a=(l?"=":"=#")+p}else a=d.helpers[e]?"=#"+e+"("+c.join(",")+");":"="+a}return a}, true?!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(){return d}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"undefined"!=typeof exports?module.exports=d:this.template=d}();
 
 /***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10566,18 +10540,28 @@ module.exports = {
 };
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
 
 var Route = function () {
   var _e = {
-    routeBtn: '[data-route]'
+    routeBtn: '[data-route]',
+    page: '#app'
+  };
+
+  var route = {
+    '/': __webpack_require__(39),
+    '/step1': __webpack_require__(16),
+    '/step2': __webpack_require__(22),
+    '/step3': __webpack_require__(26),
+    '/step4': __webpack_require__(30),
+    '/step5': __webpack_require__(34)
   };
 
   _e.back = function () {
@@ -10600,20 +10584,28 @@ var Route = function () {
     $(window).on('popstate', function (e) {
       e.preventDefault();
       console.log(e.state);
+      redirect(location.pathname);
     });
     $('body').on('click', _e.routeBtn, function (e) {
       var path = $(e.target).data('route');
       _e.goTo(path);
+      redirect(path);
     });
   };
+
+  function redirect(path) {
+    if (path === '/') {
+      // location.href = 'http://localhost:3000'
+    }
+    route[path].init();
+  }
 
   return _e;
 }();
 module.exports = Route;
 
 /***/ }),
-
-/***/ 6:
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10650,6 +10642,475 @@ var request = function () {
 
 module.exports = request;
 
-/***/ })
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
 
-/******/ });
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item" data-route="/step4">\r\n      <div class="avater" data-route="/step4">\r\n        <div class="image"></div>\r\n        <div class="mask" data-complete="0"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item" data-route="/step1">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+var Storage = __webpack_require__(43);
+
+__webpack_require__(17);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    Rem.init();
+    render();
+    $('body').on('click', '[data-route]', store);
+  };
+
+  function store() {
+    Storage.set('abc', 'abc');
+    console.log(localStorage);
+    $('body').off('click', '[data-route]', store);
+  }
+
+  function render() {
+    var tpl = __webpack_require__(18)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n<div id="step1" class="container">\r\n  <p>请选择树种</p>\r\n  <h3>大叶树</h3>\r\n  <div class="slide">\r\n    <div class="img"></div>\r\n  </div>\r\n  <div class="btns">\r\n    <div class="btn"></div>\r\n    <div class="btn"></div>\r\n    <div class="btn"></div>\r\n    <div class="btn"></div>\r\n    <div class="btn"></div>\r\n  </div>\r\n  <p>大叶树，整体叶子巨大，保持充足的水分</p>\r\n  <div class="btn-group">\r\n    <div class="buy">600</div>\r\n    <div class="use">\r\n      <div class="unlock btn">解锁</div>\r\n      <div class="choose btn" data-route="/step2">选择</div>\r\n    </div>\r\n  </div>\r\n</div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+var Storage = __webpack_require__(43);
+
+__webpack_require__(23);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app',
+    stage: 1
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    Rem.init();
+    render();
+    $('.stage').on('change', function () {
+      _e.stage = $('.stage').val();
+    });
+    $('body').on('click', '[data-route]', store);
+  };
+
+  function store() {
+    // $('.stage').val();
+    Storage.set('stage', _e.stage);
+    console.log(localStorage);
+    $('body').off('click', '[data-route]', store);
+  }
+
+  function render() {
+    var tpl = __webpack_require__(24)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n    <div id="step2" class="container">\r\n      <p>树名</p>\r\n      <input class="input" type="text" placeholder="给小树起个名字吧...">\r\n      <p>时间</p>\r\n      <p>你希望把小树分几个阶段完成？</p>\r\n      <input type="number" class=\'stage\'>\r\n      <div class="full-btn" data-route="/step3">选择</div>\r\n    </div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 25 */,
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+var Storage = __webpack_require__(43);
+
+__webpack_require__(27);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app'
+  };
+
+  var obj = {
+    data: []
+  };
+
+  _e.init = function () {
+    setLength(Number(localStorage.getItem('stage')));
+    Rem.init();
+    setTimeout(function () {
+      render();
+    }, 0);
+    $('body').on('click', '[data-route]', store);
+  };
+
+  function store() {
+    Storage.set('ccc', 'ccc');
+    console.log(localStorage);
+    Storage.clear();
+    console.log(localStorage);
+    $('body').off('click', '[data-route]', store);
+  }
+
+  function setLength(length) {
+    for (var i = 0; i < length; i++) {
+      obj.data.push(1);
+    }
+  }
+
+  function render() {
+    var tpl = __webpack_require__(28)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n    <div id="step3" class="container">\r\n      {{each data as item index}}\r\n      <p>第{{index+1}}阶段</p>\r\n      <div class="img-box">\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <textarea name="" id="" cols="30" rows="10"></textarea>\r\n      <p>预计耗时</p>\r\n      <div class="time">\r\n        <input type="number" placeholder="天">\r\n        <input type="number" placeholder="小时">\r\n        <input type="number" placeholder="分钟">\r\n      </div>\r\n      {{/each}}\r\n      <div class="full-btn" data-route="/">开始</div>\r\n    </div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 29 */,
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+
+__webpack_require__(31);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    Rem.init();
+    Request.get('/task/select', function (data) {
+      obj.data = data;
+      render();
+    });
+    // Route.init();
+  };
+
+  function render() {
+    var tpl = __webpack_require__(32)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n    <div id="step4" class="container">\r\n      <p>第一阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>学会css基础语法</p>\r\n      <div class="progress">\r\n        <div class="complete"></div>\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>3天2小时（剩余约2天2小时）</p>\r\n      <div class="full-btn" data-route="/">提前完成</div>\r\n    </div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 33 */,
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+
+__webpack_require__(35);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    Rem.init();
+    Request.get('/task/select', function (data) {
+      obj.data = data;
+      render();
+    });
+    // Route.init();
+  };
+
+  function render() {
+    var tpl = __webpack_require__(36)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n    <div id="step5" class="container">\r\n      <p>第一阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <div class="full-btn" data-route="/main">返回主界面</div>\r\n    </div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 37 */,
+/* 38 */,
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+
+__webpack_require__(40);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    Rem.init();
+    Request.get('/task/select', function (data) {
+      obj.data = data;
+      render();
+    });
+    // Route.init();
+  };
+
+  function render() {
+    var tpl = __webpack_require__(41)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item" data-route="/step4">\r\n      <div class="avater" data-route="/step4">\r\n        <div class="image"></div>\r\n        <div class="mask" data-complete="0"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item" data-route="/step1">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 42 */,
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Storage = function () {
+  var _e = {};
+  _e.set = function (key, item) {
+    localStorage.setItem(key, item);
+  };
+  _e.get = function (key) {
+    localStorage.getItem(key);
+  };
+  _e.delete = function (key) {
+    localStorage.removeItem(key);
+  };
+  _e.clear = function () {
+    localStorage.clear();
+  };
+  _e.init = function () {};
+  return _e;
+}();
+module.exports = Storage;
+
+/***/ })
+/******/ ]);

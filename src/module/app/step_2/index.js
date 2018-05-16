@@ -4,23 +4,32 @@ const Rem = require('../../lib/rem.js');
 
 const Route = require('../../lib/route.js');
 const Request = require('../../lib/request.js');
+const Storage = require('../../lib/storage.js');
 
 require('./index.less');
 
 const Module = (() => {
   const _e = {
-    wrapper: '#app'
+    wrapper: '#app',
+    stage: 1
   };
 
   let obj = {};
 
   _e.init = () => {
     Rem.init();
-    Request.get('/task/select', (data) => {
-      obj.data = data;
-      render();
-    });
-    Route.init();
+    render();
+    $('.stage').on('change', () => {
+      _e.stage = $('.stage').val()
+    })
+    $('body').on('click', '[data-route]', store);
+  }
+
+  function store() {
+    // $('.stage').val();
+    Storage.set('stage', _e.stage);
+    console.log(localStorage);
+    $('body').off('click', '[data-route]', store);
   }
 
   function render() {
