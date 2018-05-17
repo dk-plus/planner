@@ -11,6 +11,7 @@ require('./index.less');
 const Module = (() => {
   const _e = {
     wrapper: '#app',
+    name: '',
     stage: 1
   };
 
@@ -20,7 +21,9 @@ const Module = (() => {
     Rem.init();
     render();
     $('.stage').on('change', () => {
-      _e.stage = $('.stage').val()
+      _e.stage = $('.stage').val();
+      _e.name = $('.name').val();
+      store();
     })
     $('body').on('click', '[data-route]', store);
   }
@@ -28,6 +31,7 @@ const Module = (() => {
   function store() {
     // $('.stage').val();
     Storage.set('stage', _e.stage);
+    Storage.set('name', _e.name);
     console.log(localStorage);
     $('body').off('click', '[data-route]', store);
   }

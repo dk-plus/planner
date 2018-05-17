@@ -20,8 +20,19 @@ const Module = (() => {
     Request.get('/task/select', (data) => {
       obj.data = data;
       render();
+      $('.mask').on('click', getTaskId);
     });
     Route.init();
+  }
+
+  function getTaskId(e) {
+    let id = $(e.target).data('url');
+    Request.get(id, (data) => {
+      Storage.set('taskId', id);
+      console.log(localStorage);
+      console.log(data);
+      
+    });
   }
 
   function render() {

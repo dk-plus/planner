@@ -10475,9 +10475,19 @@ var Module = function () {
     Request.get('/task/select', function (data) {
       obj.data = data;
       render();
+      $('.mask').on('click', getTaskId);
     });
     Route.init();
   };
+
+  function getTaskId(e) {
+    var id = $(e.target).data('url');
+    Request.get(id, function (data) {
+      Storage.set('taskId', id);
+      console.log(localStorage);
+      console.log(data);
+    });
+  }
 
   function render() {
     var tpl = __webpack_require__(8)();
@@ -10656,7 +10666,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item" data-route="/step4">\r\n      <div class="avater" data-route="/step4">\r\n        <div class="image"></div>\r\n        <div class="mask" data-complete="0"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item" data-route="/step1">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
+__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item" data-route="/step4">\r\n      <div class="avater" data-route="/step4">\r\n        <div class="image"></div>\r\n        <div class="mask" data-id={{item.taskId}} data-route="/step4" data-complete="0" data-url="/task/{{item.taskId}}"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item" data-route="/step1">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
 
 }
 return __p
@@ -10759,6 +10769,7 @@ __webpack_require__(23);
 var Module = function () {
   var _e = {
     wrapper: '#app',
+    name: '',
     stage: 1
   };
 
@@ -10769,6 +10780,8 @@ var Module = function () {
     render();
     $('.stage').on('change', function () {
       _e.stage = $('.stage').val();
+      _e.name = $('.name').val();
+      store();
     });
     $('body').on('click', '[data-route]', store);
   };
@@ -10776,6 +10789,7 @@ var Module = function () {
   function store() {
     // $('.stage').val();
     Storage.set('stage', _e.stage);
+    Storage.set('name', _e.name);
     console.log(localStorage);
     $('body').off('click', '[data-route]', store);
   }
@@ -10805,7 +10819,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step2" class="container">\r\n      <p>树名</p>\r\n      <input class="input" type="text" placeholder="给小树起个名字吧...">\r\n      <p>时间</p>\r\n      <p>你希望把小树分几个阶段完成？</p>\r\n      <input type="number" class=\'stage\'>\r\n      <div class="full-btn" data-route="/step3">选择</div>\r\n    </div>';
+__p += '\r\n    <div id="step2" class="container">\r\n      <p>树名</p>\r\n      <input class="name" type="text" placeholder="给小树起个名字吧...">\r\n      <p>时间</p>\r\n      <p>你希望把小树分几个阶段完成？</p>\r\n      <input type="number" class=\'stage\'>\r\n      <div class="full-btn" data-route="/step3">选择</div>\r\n    </div>';
 
 }
 return __p
@@ -10841,17 +10855,24 @@ var Module = function () {
   _e.init = function () {
     setLength(Number(localStorage.getItem('stage')));
     Rem.init();
-    setTimeout(function () {
-      render();
-    }, 0);
+    render();
     $('body').on('click', '[data-route]', store);
   };
 
   function store() {
-    Storage.set('ccc', 'ccc');
-    console.log(localStorage);
+    Request.post('/task/new', formatData(), function (data) {
+      if (data.code === 0) {
+        console.log('sucess');
+      }
+      if (data.code === -2) {
+        console.log('fail');
+      }
+    }, function (err) {
+      console.log(err);
+    });
+    // console.log(localStorage);
     Storage.clear();
-    console.log(localStorage);
+    // console.log(localStorage);
     $('body').off('click', '[data-route]', store);
   }
 
@@ -10859,6 +10880,30 @@ var Module = function () {
     for (var i = 0; i < length; i++) {
       obj.data.push(1);
     }
+  }
+
+  function form() {
+    var data = [];
+    $('.stage').each(function (index, item) {
+      var obj = {};
+      obj['taskName'] = $('.detail').eq(index).val();
+      obj['startTime'] = $('.detail').eq(index).val();
+      obj['timeConsume'] = $('.detail').eq(index).val();
+      obj['stageLevel'] = index;
+      data.push(obj);
+    });
+    return data;
+  }
+
+  function formatData() {
+    var data = {};
+    data = {
+      "taskName": localStorage.getItem('name'),
+      "startTime": "2018-02-23 10:00:00",
+      "timeConsume": "360000", //总消耗时间
+      "taskList": form()
+    };
+    return data;
   }
 
   function render() {
@@ -10886,7 +10931,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step3" class="container">\r\n      {{each data as item index}}\r\n      <p>第{{index+1}}阶段</p>\r\n      <div class="img-box">\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <textarea name="" id="" cols="30" rows="10"></textarea>\r\n      <p>预计耗时</p>\r\n      <div class="time">\r\n        <input type="number" placeholder="天">\r\n        <input type="number" placeholder="小时">\r\n        <input type="number" placeholder="分钟">\r\n      </div>\r\n      {{/each}}\r\n      <div class="full-btn" data-route="/">开始</div>\r\n    </div>';
+__p += '\r\n    <div id="step3" class="container">\r\n      {{each data as item index}}\r\n      <div id="stage-{{index}}" class="stage">\r\n        <p>第{{index+1}}阶段</p>\r\n        <div class="img-box">\r\n          <div class="img"></div>\r\n        </div>\r\n        <p>详细目标</p>\r\n        <textarea class="detail" name="" id="" cols="30" rows="10"></textarea>\r\n        <p>预计耗时</p>\r\n        <div class="time">\r\n          <input type="number" placeholder="天">\r\n          <input type="number" placeholder="小时">\r\n          <input type="number" placeholder="分钟">\r\n        </div>\r\n      </div>\r\n      {{/each}}\r\n      <div class="full-btn" data-route="/">开始</div>\r\n    </div>';
 
 }
 return __p
@@ -10918,9 +10963,10 @@ var Module = function () {
 
   _e.init = function () {
     Rem.init();
-    Request.get('/task/select', function (data) {
+    Request.get('/task/16', function (data) {
       obj.data = data;
       render();
+      $('.finish').on('click', finish);
     });
     // Route.init();
   };
@@ -10930,6 +10976,15 @@ var Module = function () {
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
+  }
+
+  function finish() {
+    var id = localStorage.getItem('taskId');
+    Request.get('/task/end/' + id, function (data) {
+      if (data.code === 0) {
+        console.log('sucess');
+      }
+    });
   }
 
   return _e;
@@ -10950,7 +11005,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step4" class="container">\r\n      <p>第一阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>学会css基础语法</p>\r\n      <div class="progress">\r\n        <div class="complete"></div>\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>3天2小时（剩余约2天2小时）</p>\r\n      <div class="full-btn" data-route="/">提前完成</div>\r\n    </div>';
+__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      {{if item.state === -2}}\r\n      <p>第{{item.stageLevel}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n        <div class="complete"></div>\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}（剩余约2天2小时）</p>\r\n      {{/if}}\r\n      {{/each}}\r\n      <div class="full-btn finish" data-route="/">提前完成</div>\r\n    </div>';
 
 }
 return __p
@@ -11035,6 +11090,7 @@ var Rem = __webpack_require__(4);
 
 var Route = __webpack_require__(5);
 var Request = __webpack_require__(6);
+var Storage = __webpack_require__(43);
 
 __webpack_require__(40);
 
@@ -11050,9 +11106,19 @@ var Module = function () {
     Request.get('/task/select', function (data) {
       obj.data = data;
       render();
+      $('.mask').on('click', getTaskId);
     });
     // Route.init();
   };
+
+  function getTaskId(e) {
+    var id = $(e.target).data('url');
+    Request.get(id, function (data) {
+      Storage.set('taskId', id);
+      console.log(localStorage);
+      console.log(data);
+    });
+  }
 
   function render() {
     var tpl = __webpack_require__(41)();
@@ -11079,7 +11145,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item" data-route="/step4">\r\n      <div class="avater" data-route="/step4">\r\n        <div class="image"></div>\r\n        <div class="mask" data-complete="0"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item" data-route="/step1">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
+__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item" data-route="/step4">\r\n      <div class="avater" data-route="/step4">\r\n        <div class="image"></div>\r\n        <div class="mask" data-id={{item.taskId}} data-route="/step4" data-complete="0" data-url="/task/{{item.taskId}}"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item" data-route="/step1">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
 
 }
 return __p

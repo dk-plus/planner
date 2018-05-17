@@ -20,17 +20,24 @@ const Module = (() => {
   _e.init = () => {
     setLength(Number(localStorage.getItem('stage')));
     Rem.init();
-    setTimeout(() => {
-      render();
-    },0);
+    render();
     $('body').on('click', '[data-route]', store);
   }
 
   function store() {
-    Storage.set('ccc', 'ccc');
-    console.log(localStorage);
+    Request.post('/task/new', formatData(), (data) => {
+      if (data.code === 0) {
+        console.log('sucess');
+      }
+      if (data.code === -2) {
+        console.log('fail');
+      }
+    }, (err) => {
+      console.log(err);
+    });
+    // console.log(localStorage);
     Storage.clear();
-    console.log(localStorage);
+    // console.log(localStorage);
     $('body').off('click', '[data-route]', store);
   }
 
@@ -38,6 +45,30 @@ const Module = (() => {
     for (let i = 0; i<length; i++) {
       obj.data.push(1)
     }
+  }
+
+  function form() {
+    let data = [];
+    $('.stage').each((index, item) => {
+      let obj = {};
+      obj['taskName'] = $('.detail').eq(index).val();
+      obj['startTime'] = $('.detail').eq(index).val();
+      obj['timeConsume'] = $('.detail').eq(index).val();
+      obj['stageLevel'] = index;
+      data.push(obj);
+    });
+    return data;
+  }
+
+  function formatData() {
+    let data = {};
+    data = {
+      "taskName": localStorage.getItem('name'),
+      "startTime": "2018-02-23 10:00:00",
+      "timeConsume": "360000",    //总消耗时间
+      "taskList": form()
+    }
+    return data;
   }
 
   function render() {

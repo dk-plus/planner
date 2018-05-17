@@ -16,9 +16,10 @@ const Module = (() => {
 
   _e.init = () => {
     Rem.init();
-    Request.get('/task/select', (data) => {
+    Request.get('/task/16', (data) => {
       obj.data = data;
       render();
+      $('.finish').on('click', finish );
     });
     // Route.init();
   }
@@ -28,6 +29,15 @@ const Module = (() => {
     const tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
+  }
+
+  function finish() {
+    let id = localStorage.getItem('taskId');
+    Request.get(`/task/end/${id}`, (data) => {
+      if (data.code === 0) {
+        console.log('sucess');
+      }
+    });
   }
 
   return _e;
