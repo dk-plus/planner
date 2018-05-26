@@ -112,6 +112,15 @@ app.get('/task/16', (req, res) => {
   });
 });
 
+app.post('/login', (req, res) => {
+  console.log('账号登录：'+req);
+  res.send('登录成功');
+});
+
+app.post('/person/add', (req, res) => {
+  res.send('注册成功');
+});
+
 app.use((req, res) => {
   res.status(404);
   res.send({

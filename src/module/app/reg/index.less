@@ -1,0 +1,33 @@
+@import url('../../../static/css/reset.less');
+@import url('../../../static/css/mixin.less');
+@import url('../../../static/css/common.less');
+
+#reg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgb(241, 241, 241);
+  > * {
+    margin-bottom: 0.5rem;
+    width: 90%;
+    height: 0.8rem;
+    border-radius: 0.1rem;
+    font-size: 0.28rem;
+    &:focus {
+      outline: none;
+    }
+  }
+  input {
+    text-indent: 1em;
+    border: 0.01rem solid rgb(2, 99, 83);
+  }
+  .btn {
+    border: 0.01rem solid #fff;
+    color: #fff;
+  }
+  .reg-btn {
+    background: rgb(177, 31, 31);
+  }
+}

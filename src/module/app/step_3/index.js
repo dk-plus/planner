@@ -25,7 +25,7 @@ const Module = (() => {
   }
 
   function store() {
-    Request.post('/task/new', formatData(), (data) => {
+    Request.post('/task/new', JSON.stringify(formatData()), (data) => {
       if (data.code === 0) {
         console.log('sucess');
       }

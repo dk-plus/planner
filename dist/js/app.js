@@ -10457,6 +10457,9 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
+var Login = __webpack_require__(44);
+
+var Cookie = __webpack_require__(48);
 var Route = __webpack_require__(5);
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
@@ -10474,7 +10477,12 @@ var Module = function () {
     Rem.init();
     Request.get('/task/select', function (data) {
       obj.data = data;
-      render();
+      // render();
+      if (!Cookie.getCookie('user') && !Cookie.getCookie('pwd')) {
+        Login.init();
+      } else {
+        render();
+      }
       $('.mask').on('click', getTaskId);
     });
     Route.init();
@@ -10860,7 +10868,7 @@ var Module = function () {
   };
 
   function store() {
-    Request.post('/task/new', formatData(), function (data) {
+    Request.post('/task/new', JSON.stringify(formatData()), function (data) {
       if (data.code === 0) {
         console.log('sucess');
       }
@@ -11177,6 +11185,212 @@ var Storage = function () {
   return _e;
 }();
 module.exports = Storage;
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+var Storage = __webpack_require__(43);
+var Cookie = __webpack_require__(48);
+
+var Reg = __webpack_require__(49);
+var Main = __webpack_require__(39);
+
+__webpack_require__(45);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app',
+    name: '#name',
+    pwd: '#pwd',
+    log: '#log-btn',
+    reg: '#reg-btn'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    render();
+    $(_e.log).on('click', function () {
+      var user = {
+        perUser: $(_e.name).val(),
+        perPass: $(_e.pwd).val()
+      };
+      Cookie.setCookie('user', user.perUser);
+      Cookie.setCookie('pwd', user.perPass);
+      // console.log(user);
+      Request.post('/login', JSON.stringify(user), function (data) {
+        console.log(data);
+        Main.init();
+      }, function (err) {
+        console.log(err);
+      });
+    });
+    $(_e.reg).on('click', function () {
+      Reg.init();
+    });
+  };
+
+  function render() {
+    var tpl = __webpack_require__(46)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '<div id="login">\r\n  <input type="text" class="name" id="name">\r\n  <input type="password" class="pwd" id="pwd">\r\n  <button class="btn log-btn" id="log-btn">登录</button>\r\n  <button class="btn reg-btn" id="reg-btn">注册</button>\r\n</div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 47 */,
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cookie = function () {
+  var _e = {};
+
+  _e.setCookie = function (key, value) {
+    var cookieText = encodeURIComponent(key) + '=' + encodeURIComponent(value);
+    document.cookie = cookieText;
+  };
+
+  _e.getCookie = function (key) {
+    var cookieKey = encodeURIComponent(key) + '=',
+        cookieStart = document.cookie.indexOf(cookieKey),
+        cookieValue = null;
+
+    if (cookieStart > -1) {
+      var cookieEnd = document.cookie.indexOf(';', cookieStart);
+      if (cookieEnd = -1) {
+        cookieEnd = document.cookie.length;
+      }
+      cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieKey.length, cookieEnd));
+    }
+    return cookieValue;
+  };
+
+  _e.init = function () {};
+
+  return _e;
+}();
+
+module.exports = Cookie;
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(3);
+var Rem = __webpack_require__(4);
+
+var Route = __webpack_require__(5);
+var Request = __webpack_require__(6);
+var Storage = __webpack_require__(43);
+var Cookie = __webpack_require__(48);
+
+var Main = __webpack_require__(39);
+
+__webpack_require__(50);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app',
+    name: '#name',
+    nick: '#nick',
+    sign: 'signiture',
+    reg: '#regi-btn'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    render();
+    $(_e.reg).on('click', function () {
+      var user = {
+        perUser: $(_e.name).val(),
+        perPass: $(_e.pwd).val(),
+        perName: $(_e.nick).val(),
+        perComment: $(_e.sign).val()
+      };
+      Cookie.setCookie('user', user.perUser);
+      Cookie.setCookie('pwd', user.perPass);
+      // console.log(user);
+      Request.post('/person/add', JSON.stringify(user), function (data) {
+        console.log(data);
+        Main.init();
+      }, function (err) {
+        console.log(err);
+      });
+    });
+  };
+
+  function render() {
+    var tpl = __webpack_require__(51)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '<div id="reg">\r\n  <input type="text" class="name" id="name">\r\n  <input type="password" class="pwd" id="pwd">\r\n  <input type="text" class="nick" id="nick">\r\n  <input type="text" class="signiture" id="signiture">\r\n  <button class="btn reg-btn" id="regi-btn">注册</button>\r\n</div>';
+
+}
+return __p
+}
 
 /***/ })
 /******/ ]);

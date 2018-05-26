@@ -951,6 +951,266 @@ body {
   right: 0;
   bottom: 0;
 }
+#reg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #f1f1f1;
+}
+#reg > * {
+  margin-bottom: 0.5rem;
+  width: 90%;
+  height: 0.8rem;
+  border-radius: 0.1rem;
+  font-size: 0.28rem;
+}
+#reg > *:focus {
+  outline: none;
+}
+#reg input {
+  text-indent: 1em;
+  border: 0.01rem solid #026353;
+}
+#reg .btn {
+  border: 0.01rem solid #fff;
+  color: #fff;
+}
+#reg .reg-btn {
+  background: #b11f1f;
+}
+* {
+  font-size: 0.24rem;
+}
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+body,
+div,
+dt,
+dl,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+form,
+a,
+p,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: '\5FAE\8F6F\96C5\9ED1', consolas;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+img {
+  border: none;
+  display: block;
+}
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d6f1e8;
+  overflow: scroll;
+}
+.container .topbar {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.2rem;
+  background: #53a487;
+  line-height: 1rem;
+}
+.container .topbar span {
+  color: #fff;
+  font-size: 0.3rem;
+}
+.container .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
+#app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #f1f1f1;
+}
+#login > * {
+  margin-bottom: 0.5rem;
+  width: 90%;
+  height: 0.8rem;
+  border-radius: 0.1rem;
+  font-size: 0.28rem;
+}
+#login > *:focus {
+  outline: none;
+}
+#login input {
+  text-indent: 1em;
+}
+#login .name {
+  border: 0.01rem solid #026353;
+}
+#login .pwd {
+  border: 0.01rem solid #026353;
+}
+#login .btn {
+  border: 0.01rem solid #fff;
+  color: #fff;
+}
+#login .log-btn {
+  background: #00806b;
+}
+#login .reg-btn {
+  background: #b11f1f;
+}
+* {
+  font-size: 0.24rem;
+}
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+body,
+div,
+dt,
+dl,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+form,
+a,
+p,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: '\5FAE\8F6F\96C5\9ED1', consolas;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+img {
+  border: none;
+  display: block;
+}
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d6f1e8;
+  overflow: scroll;
+}
+.container .topbar {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.2rem;
+  background: #53a487;
+  line-height: 1rem;
+}
+.container .topbar span {
+  color: #fff;
+  font-size: 0.3rem;
+}
+.container .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
+#app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 #main {
   background: #54a386 url(/img/bg_img.png) no-repeat;
   background-position: 50% 97%;
