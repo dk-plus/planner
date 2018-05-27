@@ -16,5 +16,5 @@
         </div>
       </div>
       {{/each}}
-      <div class="full-btn" data-route="/">开始</div>
+      <div class="full-btn action">开始</div>
     </div>

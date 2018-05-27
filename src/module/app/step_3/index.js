@@ -21,7 +21,8 @@ const Module = (() => {
     setLength(Number(localStorage.getItem('stage')));
     Rem.init();
     render();
-    $('body').on('click', '[data-route]', store);
+    // $('body').on('click', '[data-route]', store);
+    $('body').on('click', '.action', store);
   }
 
   function store() {
@@ -38,7 +39,8 @@ const Module = (() => {
     // console.log(localStorage);
     Storage.clear();
     // console.log(localStorage);
-    $('body').off('click', '[data-route]', store);
+    // $('body').off('click', '[data-route]', store);
+    location.href = location.origin;
   }
 
   function setLength(length) {

@@ -10881,7 +10881,8 @@ var Module = function () {
     setLength(Number(localStorage.getItem('stage')));
     Rem.init();
     render();
-    $('body').on('click', '[data-route]', store);
+    // $('body').on('click', '[data-route]', store);
+    $('body').on('click', '.action', store);
   };
 
   function store() {
@@ -10898,7 +10899,8 @@ var Module = function () {
     // console.log(localStorage);
     Storage.clear();
     // console.log(localStorage);
-    $('body').off('click', '[data-route]', store);
+    // $('body').off('click', '[data-route]', store);
+    location.href = location.origin;
   }
 
   function setLength(length) {
@@ -10960,7 +10962,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step3" class="container">\r\n      {{each data as item index}}\r\n      <div id="stage-{{index}}" class="stage">\r\n        <p>第{{index+1}}阶段</p>\r\n        <div class="img-box">\r\n          <div class="img"></div>\r\n        </div>\r\n        <p>详细目标</p>\r\n        <textarea class="detail" name="" id="" cols="30" rows="10"></textarea>\r\n        <p>预计耗时</p>\r\n        <div class="time">\r\n          <input type="number" placeholder="天">\r\n          <input type="number" placeholder="小时">\r\n          <input type="number" placeholder="分钟">\r\n        </div>\r\n      </div>\r\n      {{/each}}\r\n      <div class="full-btn" data-route="/">开始</div>\r\n    </div>';
+__p += '\r\n    <div id="step3" class="container">\r\n      {{each data as item index}}\r\n      <div id="stage-{{index}}" class="stage">\r\n        <p>第{{index+1}}阶段</p>\r\n        <div class="img-box">\r\n          <div class="img"></div>\r\n        </div>\r\n        <p>详细目标</p>\r\n        <textarea class="detail" name="" id="" cols="30" rows="10"></textarea>\r\n        <p>预计耗时</p>\r\n        <div class="time">\r\n          <input type="number" placeholder="天">\r\n          <input type="number" placeholder="小时">\r\n          <input type="number" placeholder="分钟">\r\n        </div>\r\n      </div>\r\n      {{/each}}\r\n      <div class="full-btn action">开始</div>\r\n    </div>';
 
 }
 return __p

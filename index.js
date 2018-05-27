@@ -80,7 +80,7 @@ app.get('/task/select', (req, res) => {
 });
 
 app.post('/task/new', (req, res) => {
-  // console.log(req);
+  console.log(req);
   res.send({
     code: 0
   });
@@ -150,7 +150,7 @@ app.get('/task/17', (req, res) => {
 app.post('/login', (req, res) => {
   console.log('账号登录：'+req);
   res.send({
-    code: -2
+    code: 0
   });
 });
 
