@@ -10660,6 +10660,7 @@ var request = function () {
       url: url,
       method: 'POST',
       data: JSON.stringify(data),
+      contentType: 'application/json',
       success: callbackSucess,
       error: callbackError
     });
