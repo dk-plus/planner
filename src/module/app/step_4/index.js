@@ -2,7 +2,7 @@ const $ = require('jquery');
 const artT = require('art-template/dist/template.js');
 const Rem = require('../../lib/rem.js');
 
-const Route = require('../../lib/route.js');
+// const Route = require('../../lib/route.js');
 const Request = require('../../lib/request.js');
 
 require('./index.less');
@@ -16,11 +16,14 @@ const Module = (() => {
 
   _e.init = () => {
     Rem.init();
-    Request.get('/task/16', (data) => {
-      obj.data = data;
-      render();
-      $('.finish').on('click', finish );
-    });
+    setTimeout(() => {
+      let taskId = localStorage.getItem('taskId');
+      Request.get(taskId, (data) => {
+        obj.data = data;
+        render();
+        $('.finish').on('click', finish);
+      });
+    }, 500);
     // Route.init();
   }
 

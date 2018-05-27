@@ -3,6 +3,7 @@ const artT = require('art-template/dist/template.js');
 const Rem = require('../../lib/rem.js');
 
 const Login = require('../login/index.js');
+const Main = require('../main/index.js');
 
 const Cookie = require('../../lib/cookie.js');
 const Route = require('../../lib/route.js');
@@ -27,16 +28,13 @@ const Module = (() => {
         Login.init();
       }
       if (Cookie.getCookie('user') && Cookie.getCookie('pwd')) {
-        console.log({
-          perUser: Cookie.getCookie('user'),
-          perPass: Cookie.getCookie('pwd')
-        });
         Request.post('/login', {
           perUser: Cookie.getCookie('user'),
           perPass: Cookie.getCookie('pwd')
         }, (data) => {
           if (data.code === 0) {
-            render();
+            // render();
+            Main.init();
           }
           if (data.code === -2) {
             console.log('登录失败');
@@ -45,19 +43,19 @@ const Module = (() => {
           console.log(err);
         });
       }
-      $('.mask').on('click', getTaskId);
+      // $('.mask').on('click', getTaskId);
     });
     Route.init();
   }
 
   function getTaskId(e) {
     let id = $(e.target).data('url');
-    Request.get(id, (data) => {
-      Storage.set('taskId', id);
-      console.log(localStorage);
-      console.log(data);
+    // Request.get(id, (data) => {
+    //   Storage.set('taskId', id);
+    //   console.log(localStorage);
+    //   console.log(data);
       
-    });
+    // });
   }
 
   function render() {

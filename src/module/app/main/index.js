@@ -6,6 +6,8 @@ const Route = require('../../lib/route.js');
 const Request = require('../../lib/request.js');
 const Storage = require('../../lib/storage.js');
 
+// const Step4 = require('../step_4/index.js');
+
 require('./index.less');
 
 const Module = (() => {
@@ -27,12 +29,11 @@ const Module = (() => {
 
   function getTaskId(e) {
     let id = $(e.target).data('url');
-    Request.get(id, (data) => {
+    // Request.get(id, (data) => {
       Storage.set('taskId', id);
-      console.log(localStorage);
-      console.log(data);
-
-    });
+    //   console.log(localStorage);
+    //   console.log(data);
+    // });
   }
 
   function render() {

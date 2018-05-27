@@ -2,7 +2,7 @@ const $ = require('jquery');
 const artT = require('art-template/dist/template.js');
 const Rem = require('../../lib/rem.js');
 
-const Route = require('../../lib/route.js');
+// const Route = require('../../lib/route.js');
 const Request = require('../../lib/request.js');
 const Storage = require('../../lib/storage.js');
 

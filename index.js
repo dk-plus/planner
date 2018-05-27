@@ -13,7 +13,7 @@ app.get('/task/select', (req, res) => {
   res.send({
     "code": 0,
     "message": [{
-      "taskId": 16,
+      "taskId": 17,
       "perId": 3,
       "taskName": "学习java",
       "stageLevel": null,
@@ -107,24 +107,41 @@ app.get('/task/16', (req, res) => {
         "timeConsume": 36000,
         "parentId": 16,
         "state": -2
+      }]
+    }
+  });
+});
+
+app.get('/task/17', (req, res) => {
+  res.send({
+    "code": 0,
+    "message": {
+      "taskId": null,
+      "perId": 16,
+      "taskName": "学习java",
+      "stageLevel": null,
+      "startTime": "2018-02-23 10:00:00",
+      "timeConsume": 7200000,
+      "parentId": null,
+      "state": 1,
+      "taskList": [{
+        "taskId": 17,
+        "perId": 3,
+        "taskName": "java基础",
+        "stageLevel": 1,
+        "startTime": "2018-02-23 11:00:00",
+        "timeConsume": 36000,
+        "parentId": 16,
+        "state": 1
       }, {
-          "taskId": 18,
+          "taskId": 17,
           "perId": 3,
           "taskName": "java基础",
-          "stageLevel": 2,
+          "stageLevel": 1,
           "startTime": "2018-02-23 11:00:00",
           "timeConsume": 36000,
           "parentId": 16,
           "state": 0
-        }, {
-          "taskId": 19,
-          "perId": 3,
-          "taskName": "java基础",
-          "stageLevel": 3,
-          "startTime": "2018-02-23 11:00:00",
-          "timeConsume": 36000,
-          "parentId": 16,
-          "state": 1
         }]
     }
   });

@@ -47,7 +47,7 @@ const Route = (() => {
 
   function redirect(path) {
     if (path === '/') {
-      // location.href = 'http://localhost:3000'
+      location.href = location.origin
     }
     route[path].init();
   }

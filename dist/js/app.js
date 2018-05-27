@@ -10458,6 +10458,7 @@ var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
 var Login = __webpack_require__(44);
+var Main = __webpack_require__(39);
 
 var Cookie = __webpack_require__(48);
 var Route = __webpack_require__(5);
@@ -10482,16 +10483,13 @@ var Module = function () {
         Login.init();
       }
       if (Cookie.getCookie('user') && Cookie.getCookie('pwd')) {
-        console.log({
-          perUser: Cookie.getCookie('user'),
-          perPass: Cookie.getCookie('pwd')
-        });
         Request.post('/login', {
           perUser: Cookie.getCookie('user'),
           perPass: Cookie.getCookie('pwd')
         }, function (data) {
           if (data.code === 0) {
-            render();
+            // render();
+            Main.init();
           }
           if (data.code === -2) {
             console.log('登录失败');
@@ -10500,18 +10498,19 @@ var Module = function () {
           console.log(err);
         });
       }
-      $('.mask').on('click', getTaskId);
+      // $('.mask').on('click', getTaskId);
     });
     Route.init();
   };
 
   function getTaskId(e) {
     var id = $(e.target).data('url');
-    Request.get(id, function (data) {
-      Storage.set('taskId', id);
-      console.log(localStorage);
-      console.log(data);
-    });
+    // Request.get(id, (data) => {
+    //   Storage.set('taskId', id);
+    //   console.log(localStorage);
+    //   console.log(data);
+
+    // });
   }
 
   function render() {
@@ -10630,7 +10629,7 @@ var Route = function () {
 
   function redirect(path) {
     if (path === '/') {
-      // location.href = 'http://localhost:3000'
+      location.href = location.origin;
     }
     route[path].init();
   }
@@ -10716,7 +10715,7 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
-var Route = __webpack_require__(5);
+// const Route = require('../../lib/route.js');
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
 
@@ -10786,7 +10785,7 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
-var Route = __webpack_require__(5);
+// const Route = require('../../lib/route.js');
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
 
@@ -10863,7 +10862,7 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
-var Route = __webpack_require__(5);
+// const Route = require('../../lib/route.js');
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
 
@@ -10979,7 +10978,7 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
-var Route = __webpack_require__(5);
+// const Route = require('../../lib/route.js');
 var Request = __webpack_require__(6);
 
 __webpack_require__(31);
@@ -10993,11 +10992,14 @@ var Module = function () {
 
   _e.init = function () {
     Rem.init();
-    Request.get('/task/16', function (data) {
-      obj.data = data;
-      render();
-      $('.finish').on('click', finish);
-    });
+    setTimeout(function () {
+      var taskId = localStorage.getItem('taskId');
+      Request.get(taskId, function (data) {
+        obj.data = data;
+        render();
+        $('.finish').on('click', finish);
+      });
+    }, 500);
     // Route.init();
   };
 
@@ -11122,6 +11124,8 @@ var Route = __webpack_require__(5);
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
 
+// const Step4 = require('../step_4/index.js');
+
 __webpack_require__(40);
 
 var Module = function () {
@@ -11143,11 +11147,11 @@ var Module = function () {
 
   function getTaskId(e) {
     var id = $(e.target).data('url');
-    Request.get(id, function (data) {
-      Storage.set('taskId', id);
-      console.log(localStorage);
-      console.log(data);
-    });
+    // Request.get(id, (data) => {
+    Storage.set('taskId', id);
+    //   console.log(localStorage);
+    //   console.log(data);
+    // });
   }
 
   function render() {
@@ -11175,7 +11179,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item" data-route="/step4">\r\n      <div class="avater" data-route="/step4">\r\n        <div class="image"></div>\r\n        <div class="mask" data-id={{item.taskId}} data-route="/step4" data-complete="0" data-url="/task/{{item.taskId}}"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item" data-route="/step1">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
+__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item">\r\n      <div class="avater">\r\n        <div class="image"></div>\r\n        <div class="mask" data-id={{item.taskId}} data-route="/step4" data-complete="0" data-url="/task/{{item.taskId}}"></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：{{item.state}}</p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
 
 }
 return __p
@@ -11219,7 +11223,7 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
-var Route = __webpack_require__(5);
+// const Route = require('../../lib/route.js');
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
 var Cookie = __webpack_require__(48);
@@ -11352,7 +11356,7 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
-var Route = __webpack_require__(5);
+// const Route = require('../../lib/route.js');
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
 var Cookie = __webpack_require__(48);
