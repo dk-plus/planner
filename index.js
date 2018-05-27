@@ -107,7 +107,25 @@ app.get('/task/16', (req, res) => {
         "timeConsume": 36000,
         "parentId": 16,
         "state": -2
-      }]
+      }, {
+          "taskId": 18,
+          "perId": 3,
+          "taskName": "java基础",
+          "stageLevel": 2,
+          "startTime": "2018-02-23 11:00:00",
+          "timeConsume": 36000,
+          "parentId": 16,
+          "state": 0
+        }, {
+          "taskId": 19,
+          "perId": 3,
+          "taskName": "java基础",
+          "stageLevel": 3,
+          "startTime": "2018-02-23 11:00:00",
+          "timeConsume": 36000,
+          "parentId": 16,
+          "state": 1
+        }]
     }
   });
 });
@@ -115,7 +133,7 @@ app.get('/task/16', (req, res) => {
 app.post('/login', (req, res) => {
   console.log('账号登录：'+req);
   res.send({
-    code: -2
+    code: 0
   });
 });
 

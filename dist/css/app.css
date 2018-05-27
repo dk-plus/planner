@@ -607,7 +607,12 @@ body {
   display: flex;
 }
 #step3 .time input {
-  border: none;
+  border: 1px solid #53a487;
+  border-radius: 0.05rem;
+  width: 1rem;
+  text-indent: 0.5em;
+  height: 0.5rem;
+  margin-right: 0.3rem;
 }
 #step3 .time input:focus {
   outline: none;
@@ -712,6 +717,11 @@ body {
 #step4 {
   z-index: 1;
 }
+#step4 .title {
+  font-size: 0.28rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
 #step4 p {
   margin: 0.3rem 0.3rem 0.1rem;
   color: #3b6b5a;
@@ -722,6 +732,25 @@ body {
 }
 #step4 textarea:focus {
   outline: none;
+}
+#step4 .progress {
+  width: 90%;
+  height: 0.1rem;
+  background: #ccc;
+  margin: 0.5rem auto;
+}
+#step4 .progress .complete {
+  width: 100%;
+  height: 100%;
+}
+#step4 .progress [data-complete='0'] {
+  background: #3b6b5a;
+}
+#step4 .progress [data-complete='1'] {
+  background: #a80d0d;
+}
+#step4 .progress [data-complete='2'] {
+  background: #02e793;
 }
 #step4 .full-btn {
   height: 0.6rem;

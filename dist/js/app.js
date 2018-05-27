@@ -11031,7 +11031,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      {{if item.state === -2}}\r\n      <p>第{{item.stageLevel}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n        <div class="complete"></div>\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}（剩余约2天2小时）</p>\r\n      {{/if}}\r\n      {{/each}}\r\n      <div class="full-btn finish" data-route="/">提前完成</div>\r\n    </div>';
+__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      <p class="title">第{{item.stageLevel}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n        <div class="complete" data-complete={{item.state}}></div>\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}</p>\r\n      {{/each}}\r\n      <div class="full-btn finish" data-route="/">提前完成</div>\r\n    </div>';
 
 }
 return __p
