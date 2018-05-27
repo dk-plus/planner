@@ -114,7 +114,9 @@ app.get('/task/16', (req, res) => {
 
 app.post('/login', (req, res) => {
   console.log('账号登录：'+req);
-  res.send('登录成功');
+  res.send({
+    code: -2
+  });
 });
 
 app.post('/person/add', (req, res) => {

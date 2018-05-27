@@ -30,12 +30,18 @@ const Module = (() => {
         perUser: $(_e.name).val(),
         perPass: $(_e.pwd).val()
       }
-      Cookie.setCookie('user', user.perUser);
-      Cookie.setCookie('pwd', user.perPass);
       // console.log(user);
       Request.post('/login', JSON.stringify(user), (data) => {
         console.log(data);
-        Main.init();
+        if (data.code === 0) {
+          Cookie.setCookie('user', user.perUser);
+          Cookie.setCookie('pwd', user.perPass);
+          Main.init();
+        }
+        if (data.code === -2) {
+          console.log('登录失败');
+          alert('账号或密码错误');
+        }
       }, (err) => {
         console.log(err);
       });

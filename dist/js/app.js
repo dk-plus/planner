@@ -10480,8 +10480,21 @@ var Module = function () {
       // render();
       if (!Cookie.getCookie('user') && !Cookie.getCookie('pwd')) {
         Login.init();
-      } else {
-        render();
+      }
+      if (Cookie.getCookie('user') && Cookie.getCookie('pwd')) {
+        Request.post('/login', {
+          perUser: Cookie.getCookie('user'),
+          perPass: Cookie.getCookie('pwd')
+        }, function (data) {
+          if (data.code === 0) {
+            render();
+          }
+          if (data.code === -2) {
+            console.log('登录失败');
+          }
+        }, function (err) {
+          console.log(err);
+        });
       }
       $('.mask').on('click', getTaskId);
     });
@@ -11224,13 +11237,18 @@ var Module = function () {
       var user = {
         perUser: $(_e.name).val(),
         perPass: $(_e.pwd).val()
-      };
-      Cookie.setCookie('user', user.perUser);
-      Cookie.setCookie('pwd', user.perPass);
-      // console.log(user);
-      Request.post('/login', JSON.stringify(user), function (data) {
+        // console.log(user);
+      };Request.post('/login', JSON.stringify(user), function (data) {
         console.log(data);
-        Main.init();
+        if (data.code === 0) {
+          Cookie.setCookie('user', user.perUser);
+          Cookie.setCookie('pwd', user.perPass);
+          Main.init();
+        }
+        if (data.code === -2) {
+          console.log('登录失败');
+          alert('账号或密码错误');
+        }
       }, function (err) {
         console.log(err);
       });
@@ -11265,7 +11283,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '<div id="login">\r\n  <input type="text" class="name" id="name">\r\n  <input type="password" class="pwd" id="pwd">\r\n  <button class="btn log-btn" id="log-btn">登录</button>\r\n  <button class="btn reg-btn" id="reg-btn">注册</button>\r\n</div>';
+__p += '<div id="login">\r\n  <input type="text" class="name" id="name" placeholder="账号">\r\n  <input type="password" class="pwd" id="pwd" placeholder="密码">\r\n  <button class="btn log-btn" id="log-btn">登录</button>\r\n  <button class="btn reg-btn" id="reg-btn">注册</button>\r\n</div>';
 
 }
 return __p
@@ -11300,6 +11318,11 @@ var Cookie = function () {
       cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieKey.length, cookieEnd));
     }
     return cookieValue;
+  };
+
+  _e.unsetCookie = function (key) {
+    var cookieText = encodeURIComponent(key) + '=';
+    document.cookie = cookieText;
   };
 
   _e.init = function () {};
@@ -11386,7 +11409,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '<div id="reg">\r\n  <input type="text" class="name" id="name">\r\n  <input type="password" class="pwd" id="pwd">\r\n  <input type="text" class="nick" id="nick">\r\n  <input type="text" class="signiture" id="signiture">\r\n  <button class="btn reg-btn" id="regi-btn">注册</button>\r\n</div>';
+__p += '<div id="reg">\r\n  <input type="text" class="name" id="name" placeholder="账号">\r\n  <input type="password" class="pwd" id="pwd" placeholder="密码">\r\n  <input type="text" class="nick" id="nick" placeholder="昵称">\r\n  <input type="text" class="signiture" id="signiture" placeholder="个性签名">\r\n  <button class="btn reg-btn" id="regi-btn">注册</button>\r\n</div>';
 
 }
 return __p

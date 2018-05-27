@@ -23,14 +23,14 @@ function renderHtml(data) {
 
 const render = {
   init: () => {
-    $.ajax({
-      url: '/main',
-      type: 'get',
-      success: (data) => {
-        data = data;
-        renderHtml(data);
-      }
-    });
+    // $.ajax({
+    //   url: '/main',
+    //   type: 'get',
+    //   success: (data) => {
+    //     data = data;
+    //     renderHtml(data);
+    //   }
+    // });
     route.init();
   }
 }

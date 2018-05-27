@@ -25,8 +25,21 @@ const Module = (() => {
       // render();
       if (!Cookie.getCookie('user') && !Cookie.getCookie('pwd')) {
         Login.init();
-      }else {
-        render();
+      }
+      if (Cookie.getCookie('user') && Cookie.getCookie('pwd')) {
+        Request.post('/login', {
+          perUser: Cookie.getCookie('user'),
+          perPass: Cookie.getCookie('pwd')
+        }, (data) => {
+          if (data.code === 0) {
+            render();
+          }
+          if (data.code === -2) {
+            console.log('登录失败');
+          }
+        }, (err) => {
+          console.log(err);
+        });
       }
       $('.mask').on('click', getTaskId);
     });

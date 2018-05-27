@@ -21,6 +21,11 @@ const Cookie = (() => {
     return cookieValue;
   }
 
+  _e.unsetCookie = (key) => {
+    let cookieText = encodeURIComponent(key) + '=';
+    document.cookie = cookieText;
+  }
+
   _e.init = () => {
 
   }
