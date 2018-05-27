@@ -27,6 +27,10 @@ const Module = (() => {
         Login.init();
       }
       if (Cookie.getCookie('user') && Cookie.getCookie('pwd')) {
+        console.log({
+          perUser: Cookie.getCookie('user'),
+          perPass: Cookie.getCookie('pwd')
+        });
         Request.post('/login', {
           perUser: Cookie.getCookie('user'),
           perPass: Cookie.getCookie('pwd')
