@@ -25,7 +25,7 @@ const Module = (() => {
   }
 
   function store() {
-    Request.post('/task/new', JSON.stringify(formatData()), (data) => {
+    Request.post('/task/new', formatData(), (data) => {
       if (data.code === 0) {
         console.log('sucess');
       }
@@ -62,10 +62,14 @@ const Module = (() => {
 
   function formatData() {
     let data = {};
+    let timeC = 0;
+    $('.stage').each((index, item) => {
+      timeC += $('.detail').eq(index).val();
+    })
     data = {
       "taskName": localStorage.getItem('name'),
-      "startTime": "2018-02-23 10:00:00",
-      "timeConsume": "360000",    //总消耗时间
+      "startTime": new Date(),
+      "timeConsume": timeC,    //总消耗时间
       "taskList": form()
     }
     return data;

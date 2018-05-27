@@ -34,7 +34,7 @@ const Module = (() => {
       Cookie.setCookie('user', user.perUser);
       Cookie.setCookie('pwd', user.perPass);
       // console.log(user);
-      Request.post('/person/add', JSON.stringify(user), (data) => {
+      Request.post('/person/add', user, (data) => {
         console.log(data);
         Main.init();
       }, (err) => {

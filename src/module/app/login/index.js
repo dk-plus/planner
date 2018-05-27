@@ -31,7 +31,7 @@ const Module = (() => {
         perPass: $(_e.pwd).val()
       }
       // console.log(user);
-      Request.post('/login', JSON.stringify(user), (data) => {
+      Request.post('/login', user, (data) => {
         console.log(data);
         if (data.code === 0) {
           Cookie.setCookie('user', user.perUser);

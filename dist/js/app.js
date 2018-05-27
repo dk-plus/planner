@@ -10659,7 +10659,7 @@ var request = function () {
     $.ajax({
       url: url,
       method: 'POST',
-      data: data,
+      data: JSON.stringify(data),
       success: callbackSucess,
       error: callbackError
     });
@@ -10881,7 +10881,7 @@ var Module = function () {
   };
 
   function store() {
-    Request.post('/task/new', JSON.stringify(formatData()), function (data) {
+    Request.post('/task/new', formatData(), function (data) {
       if (data.code === 0) {
         console.log('sucess');
       }
@@ -10918,10 +10918,14 @@ var Module = function () {
 
   function formatData() {
     var data = {};
+    var timeC = 0;
+    $('.stage').each(function (index, item) {
+      timeC += $('.detail').eq(index).val();
+    });
     data = {
       "taskName": localStorage.getItem('name'),
-      "startTime": "2018-02-23 10:00:00",
-      "timeConsume": "360000", //总消耗时间
+      "startTime": new Date(),
+      "timeConsume": timeC, //总消耗时间
       "taskList": form()
     };
     return data;
@@ -11238,7 +11242,7 @@ var Module = function () {
         perUser: $(_e.name).val(),
         perPass: $(_e.pwd).val()
         // console.log(user);
-      };Request.post('/login', JSON.stringify(user), function (data) {
+      };Request.post('/login', user, function (data) {
         console.log(data);
         if (data.code === 0) {
           Cookie.setCookie('user', user.perUser);
@@ -11375,7 +11379,7 @@ var Module = function () {
       Cookie.setCookie('user', user.perUser);
       Cookie.setCookie('pwd', user.perPass);
       // console.log(user);
-      Request.post('/person/add', JSON.stringify(user), function (data) {
+      Request.post('/person/add', user, function (data) {
         console.log(data);
         Main.init();
       }, function (err) {

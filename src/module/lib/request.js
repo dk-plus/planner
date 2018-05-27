@@ -15,7 +15,7 @@ const request = (function () {
     $.ajax({
       url: url,
       method: 'POST',
-      data: data,
+      data: JSON.stringify(data),
       success: callbackSucess,
       error: callbackError
     });
