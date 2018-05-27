@@ -1143,6 +1143,26 @@ body {
 #login .reg-btn {
   background: #b11f1f;
 }
+#pop-up {
+  display: none;
+  position: absolute;
+  width: 2.5rem;
+  height: 0.5rem;
+  top: initial;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  position: fixed;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 0.5rem;
+  border: 1px solid #000;
+  background: #000;
+  opacity: 0.8;
+  color: #fff;
+  font-size: 0.24rem;
+  border-radius: 0.5rem;
+}
 * {
   font-size: 0.24rem;
 }

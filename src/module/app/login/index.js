@@ -40,7 +40,10 @@ const Module = (() => {
         }
         if (data.code === -2) {
           console.log('登录失败');
-          alert('账号或密码错误');
+          $('#pop-up').show();
+          setTimeout(() => {
+            location.href = location.origin;
+          }, 500);
         }
       }, (err) => {
         console.log(err);

@@ -4,3 +4,4 @@
   <button class="btn log-btn" id="log-btn">登录</button>
   <button class="btn reg-btn" id="reg-btn">注册</button>
 </div>
+<div id="pop-up">账号或密码错误</div>

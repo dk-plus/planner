@@ -11260,7 +11260,10 @@ var Module = function () {
         }
         if (data.code === -2) {
           console.log('登录失败');
-          alert('账号或密码错误');
+          $('#pop-up').show();
+          setTimeout(function () {
+            location.href = location.origin;
+          }, 500);
         }
       }, function (err) {
         console.log(err);
@@ -11296,7 +11299,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '<div id="login">\r\n  <input type="text" class="name" id="name" placeholder="账号">\r\n  <input type="password" class="pwd" id="pwd" placeholder="密码">\r\n  <button class="btn log-btn" id="log-btn">登录</button>\r\n  <button class="btn reg-btn" id="reg-btn">注册</button>\r\n</div>';
+__p += '<div id="login">\r\n  <input type="text" class="name" id="name" placeholder="账号">\r\n  <input type="password" class="pwd" id="pwd" placeholder="密码">\r\n  <button class="btn log-btn" id="log-btn">登录</button>\r\n  <button class="btn reg-btn" id="reg-btn">注册</button>\r\n</div>\r\n<div id="pop-up">账号或密码错误</div>';
 
 }
 return __p
