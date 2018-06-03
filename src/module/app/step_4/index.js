@@ -58,6 +58,7 @@ const Module = (() => {
     Request.get(`/task/end/${id}`, (data) => {
       if (data.code === 0) {
         console.log('sucess');
+        location.href = location.origin;
       }
     });
   }

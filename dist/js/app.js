@@ -11047,6 +11047,7 @@ var Module = function () {
     Request.get('/task/end/' + id, function (data) {
       if (data.code === 0) {
         console.log('sucess');
+        location.href = location.origin;
       }
     });
   }
