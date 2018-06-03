@@ -11032,8 +11032,8 @@ var Module = function () {
   }
 
   function finish() {
-    var id = localStorage.getItem('taskId');
-    Request.get('/task/end' + id, function (data) {
+    var id = localStorage.getItem('taskId').split('/')[2];
+    Request.get('/task/end/' + id, function (data) {
       if (data.code === 0) {
         console.log('sucess');
       }

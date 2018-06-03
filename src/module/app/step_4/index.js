@@ -54,8 +54,8 @@ const Module = (() => {
   }
 
   function finish() {
-    let id = localStorage.getItem('taskId');
-    Request.get(`/task/end${id}`, (data) => {
+    let id = localStorage.getItem('taskId').split('/')[2];
+    Request.get(`/task/end/${id}`, (data) => {
       if (data.code === 0) {
         console.log('sucess');
       }
