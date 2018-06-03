@@ -34,7 +34,7 @@ const Module = (() => {
     Request.post('/task/new', formatData(), (data) => {
       if (data.code === 0) {
         console.log('sucess');
-        // location.href = location.origin;
+        location.href = location.origin;
       }
       if (data.code === -2) {
         console.log('fail');
