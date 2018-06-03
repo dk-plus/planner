@@ -18,7 +18,7 @@ const formatTime = (() => {
     let day = 24 * 60 * 60 * 1000;
     let hour = 60 * 60 * 1000;
     let min = 60 * 1000;
-    str = parseInt(sec/day)+'天'+parseInt(sec%day/hour)+'小时'+parseInt(sec%day%hour/min)+'分钟';
+    str = parseInt(sec / day) + '天' + parseInt(sec % day / hour) + '小时' + parseInt(sec % day % hour / min) + '分钟' + parseInt(sec % day % hour % min/ 1000) +'秒';
     return str;
   }
 

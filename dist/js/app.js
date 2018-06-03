@@ -10980,8 +10980,9 @@ var $ = __webpack_require__(0);
 var artT = __webpack_require__(3);
 var Rem = __webpack_require__(4);
 
-// const Route = require('../../lib/route.js');
+var Route = __webpack_require__(5);
 var Request = __webpack_require__(6);
+var FormatTime = __webpack_require__(53);
 
 __webpack_require__(31);
 
@@ -10998,12 +10999,30 @@ var Module = function () {
       var taskId = localStorage.getItem('taskId');
       Request.get(taskId, function (data) {
         obj.data = data;
+        setComplete();
         render();
         $('.finish').on('click', finish);
       });
     }, 500);
     // Route.init();
   };
+
+  function setComplete() {
+    console.log(obj.data.message.taskList);
+    obj.data.message.taskList.forEach(function (item) {
+      var start = new Date(item.startTime).getTime();
+      var comsume = item.timeConsume;
+      var end = start + comsume;
+      // console.log(end);
+      var now = new Date().getTime();
+      var complete = end - now;
+      console.log(complete + '/' + comsume + '=' + complete / comsume * 100);
+      item.complete = 100 - complete / comsume * 100;
+      console.log(obj);
+
+      item.timeConsume = FormatTime.secToDays(item.timeConsume);
+    });
+  }
 
   function render() {
     var tpl = __webpack_require__(32)();
@@ -11014,7 +11033,7 @@ var Module = function () {
 
   function finish() {
     var id = localStorage.getItem('taskId');
-    Request.get('/task/end/' + id, function (data) {
+    Request.get('/task/end' + id, function (data) {
       if (data.code === 0) {
         console.log('sucess');
       }
@@ -11039,7 +11058,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      <p class="title">第{{item.stageLevel}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n        <div class="complete" data-complete={{item.state}}></div>\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}</p>\r\n      {{/each}}\r\n      <div class="full-btn finish" data-route="/">提前完成</div>\r\n    </div>';
+__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      <p class="title">第{{item.stageLevel}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n      {{if item.complete <= 100}}\r\n        <div class="complete" style="width:{{item.complete}}%" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      {{if item.complete > 100}}\r\n        <div class="complete" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}</p>\r\n      {{/each}}\r\n      <div class="full-btn finish" >提前完成</div>\r\n    </div>';
 
 }
 return __p
@@ -11432,6 +11451,44 @@ __p += '<div id="reg">\r\n  <input type="text" class="name" id="name" placeholde
 }
 return __p
 }
+
+/***/ }),
+/* 52 */,
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var formatTime = function () {
+  var _e = {};
+
+  _e.dayToSec = function (day) {
+    return day * 24 * 60 * 60 * 1000;
+  };
+
+  _e.hourToSec = function (hour) {
+    return hour * 60 * 60 * 1000;
+  };
+
+  _e.minToSec = function (min) {
+    return min * 60 * 1000;
+  };
+
+  _e.secToDays = function (sec) {
+    var str = "";
+    var day = 24 * 60 * 60 * 1000;
+    var hour = 60 * 60 * 1000;
+    var min = 60 * 1000;
+    str = parseInt(sec / day) + '天' + parseInt(sec % day / hour) + '小时' + parseInt(sec % day % hour / min) + '分钟' + parseInt(sec % day % hour % min / 1000) + '秒';
+    return str;
+  };
+
+  _e.init = function () {};
+  return _e;
+}();
+
+module.exports = formatTime;
 
 /***/ })
 /******/ ]);

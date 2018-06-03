@@ -9,10 +9,15 @@
       <p>详细目标</p>
       <p>{{item.taskName}}</p>
       <div class="progress">
+      {{if item.complete <= 100}}
+        <div class="complete" style="width:{{item.complete}}%" data-complete={{item.state}}></div>
+      {{/if}}
+      {{if item.complete > 100}}
         <div class="complete" data-complete={{item.state}}></div>
+      {{/if}}
       </div>
       <p>预计耗时</p>
       <p>{{item.timeConsume}}</p>
       {{/each}}
-      <div class="full-btn finish" data-route="/">提前完成</div>
+      <div class="full-btn finish" >提前完成</div>
     </div>
