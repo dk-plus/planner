@@ -35,7 +35,7 @@ app.get('/task/select', (req, res) => {
 });
 
 app.post('/task/new', (req, res) => {
-  console.log(req);
+  console.log('new');
   res.send({
     code: 0
   });

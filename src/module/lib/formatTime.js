@@ -13,6 +13,16 @@ const formatTime = (() => {
     return min*60*1000;
   }
 
+  _e.formatToday = (date) => {
+    return `
+      ${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}
+    `
+  }
+
+  _e.totalSec = (day, hour, min) => {
+    return _e.dayToSec(day) + _e.hourToSec(day) + _e.minToSec(day);
+  }
+
   _e.secToDays = (sec) => {
     let str = "";
     let day = 24 * 60 * 60 * 1000;

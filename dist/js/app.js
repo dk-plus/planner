@@ -10865,6 +10865,7 @@ var Rem = __webpack_require__(4);
 // const Route = require('../../lib/route.js');
 var Request = __webpack_require__(6);
 var Storage = __webpack_require__(43);
+var FormatTime = __webpack_require__(53);
 
 __webpack_require__(27);
 
@@ -10875,6 +10876,10 @@ var Module = function () {
 
   var obj = {
     data: []
+  };
+
+  var timeData = {
+    timeC: 0
   };
 
   _e.init = function () {
@@ -10889,6 +10894,7 @@ var Module = function () {
     Request.post('/task/new', formatData(), function (data) {
       if (data.code === 0) {
         console.log('sucess');
+        // location.href = location.origin;
       }
       if (data.code === -2) {
         console.log('fail');
@@ -10900,7 +10906,6 @@ var Module = function () {
     Storage.clear();
     // console.log(localStorage);
     // $('body').off('click', '[data-route]', store);
-    location.href = location.origin;
   }
 
   function setLength(length) {
@@ -10911,28 +10916,34 @@ var Module = function () {
 
   function form() {
     var data = [];
+    var nextStartTime = '';
     $('.stage').each(function (index, item) {
       var obj = {};
       obj['taskName'] = $('.detail').eq(index).val();
-      obj['startTime'] = $('.detail').eq(index).val();
-      obj['timeConsume'] = $('.detail').eq(index).val();
+      obj['startTime'] = nextStartTime !== '' ? nextStartTime : FormatTime.formatToday(new Date());
+      var day = $('.time').eq(index).children().eq(0).val();
+      var hour = $('.time').eq(index).children().eq(1).val();
+      var min = $('.time').eq(index).children().eq(2).val();
+      // console.log(day,hour,min,FormatTime.totalSec(day, hour, min));
+      obj['timeConsume'] = FormatTime.totalSec(day, hour, min);
       obj['stageLevel'] = index;
       data.push(obj);
+      nextStartTime = FormatTime.formatToday(new Date(new Date(obj['startTime']).getTime() + obj['timeConsume']));
+      // console.log(nextStartTime);
+      timeData.timeC += obj['timeConsume'];
+      console.log(timeData);
     });
     return data;
   }
 
   function formatData() {
     var data = {};
-    var timeC = 0;
-    $('.stage').each(function (index, item) {
-      timeC += $('.detail').eq(index).val();
-    });
+    // let timeC = timeData.timeC;
     data = {
       "taskName": localStorage.getItem('name'),
-      "startTime": new Date(),
-      "timeConsume": timeC, //总消耗时间
-      "taskList": form()
+      "startTime": FormatTime.formatToday(new Date()),
+      "taskList": form(),
+      "timeConsume": timeData.timeC //总消耗时间
     };
     return data;
   }
@@ -11473,6 +11484,14 @@ var formatTime = function () {
 
   _e.minToSec = function (min) {
     return min * 60 * 1000;
+  };
+
+  _e.formatToday = function (date) {
+    return '\n      ' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '\n    ';
+  };
+
+  _e.totalSec = function (day, hour, min) {
+    return _e.dayToSec(day) + _e.hourToSec(day) + _e.minToSec(day);
   };
 
   _e.secToDays = function (sec) {
