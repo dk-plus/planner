@@ -554,7 +554,7 @@ body {
   height: 100%;
 }
 #step4 .progress [data-complete='0'] {
-  background: #3b6b5a;
+  background: #8e8e8e;
 }
 #step4 .progress [data-complete='1'] {
   background: #a80d0d;

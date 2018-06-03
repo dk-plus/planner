@@ -1,7 +1,8 @@
 
     <div id="step4" class="container">
       {{each data.message.taskList as item index}}
-      <p class="title">第{{item.stageLevel}}阶段</p>
+      {{if item.state >-2}}
+      <p class="title">第{{index+1}}阶段</p>
       <div class="img-box">
         <p>小树正在茁壮成长中</p>
         <div class="img"></div>
@@ -18,6 +19,9 @@
       </div>
       <p>预计耗时</p>
       <p>{{item.timeConsume}}</p>
-      {{/each}}
+      {{if item.state <1}}
       <div class="full-btn finish" >提前完成</div>
+      {{/if}}
+      {{/if}}
+      {{/each}}
     </div>

@@ -17,16 +17,16 @@ app.get('/task/select', (req, res) => {
       "perId": 3,
       "taskName": "学习java",
       "stageLevel": null,
-      "startTime": "2018-06-3 8:00:00",
+      "startTime": "2018-06-3 23:00:00",
       "timeConsume": 7200000,
       "parentId": null,
-      "state": 1
+      "state": -2
     },{
       "taskId": 16,
       "perId": 3,
       "taskName": "学习java",
       "stageLevel": null,
-      "startTime": "2018-02-23 10:00:00",
+      "startTime": "2018-06-4 10:00:00",
       "timeConsume": 7200000,
       "parentId": null,
       "state": 1
@@ -75,7 +75,7 @@ app.get('/task/17', (req, res) => {
       "perId": 16,
       "taskName": "学习java",
       "stageLevel": null,
-      "startTime": "2018-02-23 10:00:00",
+      "startTime": "2018-06-3 23:00:00",
       "timeConsume": 7200000,
       "parentId": null,
       "state": 1,
@@ -84,16 +84,16 @@ app.get('/task/17', (req, res) => {
         "perId": 3,
         "taskName": "java基础",
         "stageLevel": 1,
-        "startTime": "2018-06-3 8:00:00",
+        "startTime": "2018-06-4 0:00:00",
         "timeConsume": 3611000,
         "parentId": 16,
-        "state": 1
+        "state": 2
       }, {
           "taskId": 17,
           "perId": 3,
           "taskName": "java基础",
           "stageLevel": 1,
-          "startTime": "2018-02-23 11:00:00",
+          "startTime": "2018-06-4 7:00:00",
           "timeConsume": 136000,
           "parentId": 16,
           "state": 0
