@@ -10894,7 +10894,7 @@ var Module = function () {
     Request.post('/task/new', formatData(), function (data) {
       if (data.code === 0) {
         console.log('sucess');
-        location.href = location.origin;
+        // location.href = location.origin;
       }
       if (data.code === -2) {
         console.log('fail');
@@ -11502,7 +11502,7 @@ var formatTime = function () {
   };
 
   _e.totalSec = function (day, hour, min) {
-    return _e.dayToSec(day) + _e.hourToSec(day) + _e.minToSec(day);
+    return _e.dayToSec(day) + _e.hourToSec(hour) + _e.minToSec(min);
   };
 
   _e.secToDays = function (sec) {

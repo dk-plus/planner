@@ -28,7 +28,7 @@ const formatTime = (() => {
   }
 
   _e.totalSec = (day, hour, min) => {
-    return _e.dayToSec(day) + _e.hourToSec(day) + _e.minToSec(day);
+    return _e.dayToSec(day) + _e.hourToSec(hour) + _e.minToSec(min);
   }
 
   _e.secToDays = (sec) => {
