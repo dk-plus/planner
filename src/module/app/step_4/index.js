@@ -23,7 +23,9 @@ const Module = (() => {
         obj.data = data;
         setComplete();
         render();
-        $('.finish').on('click', finish);
+        $('.finish').on('click', (e) => {
+          finish($(e.target).parent().data('id'));
+        });
       });
     }, 500);
     // Route.init();
@@ -53,8 +55,8 @@ const Module = (() => {
     $(_e.wrapper).html(tplRender(obj));
   }
 
-  function finish() {
-    let id = localStorage.getItem('taskId').split('/')[2];
+  function finish(id) {
+    // let id = localStorage.getItem('taskId').split('/')[2];
     Request.get(`/task/end/${id}`, (data) => {
       if (data.code === 0) {
         console.log('sucess');

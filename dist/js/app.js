@@ -10894,7 +10894,7 @@ var Module = function () {
     Request.post('/task/new', formatData(), function (data) {
       if (data.code === 0) {
         console.log('sucess');
-        location.href = location.origin;
+        // location.href = location.origin;
       }
       if (data.code === -2) {
         console.log('fail');
@@ -11012,7 +11012,9 @@ var Module = function () {
         obj.data = data;
         setComplete();
         render();
-        $('.finish').on('click', finish);
+        $('.finish').on('click', function (e) {
+          finish($(e.target).parent().data('id'));
+        });
       });
     }, 500);
     // Route.init();
@@ -11042,8 +11044,8 @@ var Module = function () {
     $(_e.wrapper).html(tplRender(obj));
   }
 
-  function finish() {
-    var id = localStorage.getItem('taskId').split('/')[2];
+  function finish(id) {
+    // let id = localStorage.getItem('taskId').split('/')[2];
     Request.get('/task/end/' + id, function (data) {
       if (data.code === 0) {
         console.log('sucess');
@@ -11070,7 +11072,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      {{if item.state >-2}}\r\n      <p class="title">第{{index+1}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n      {{if item.complete <= 100}}\r\n        <div class="complete" style="width:{{item.complete}}%" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      {{if item.complete > 100}}\r\n        <div class="complete" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}</p>\r\n      {{if item.state <1}}\r\n      <div class="full-btn finish" >提前完成</div>\r\n      {{/if}}\r\n      {{/if}}\r\n      {{/each}}\r\n    </div>';
+__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      <div data-id={{item.taskId}}>\r\n      {{if item.state >-2}}\r\n      <p class="title">第{{index+1}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n      {{if item.complete <= 100}}\r\n        <div class="complete" style="width:{{item.complete}}%" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      {{if item.complete > 100}}\r\n        <div class="complete" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}</p>\r\n      {{if item.state <1}}\r\n      <div class="full-btn finish" >提前完成</div>\r\n      {{/if}}\r\n      {{/if}}\r\n      </div>\r\n      {{/each}}\r\n    </div>';
 
 }
 return __p

@@ -1,6 +1,7 @@
 
     <div id="step4" class="container">
       {{each data.message.taskList as item index}}
+      <div data-id={{item.taskId}}>
       {{if item.state >-2}}
       <p class="title">第{{index+1}}阶段</p>
       <div class="img-box">
@@ -23,5 +24,6 @@
       <div class="full-btn finish" >提前完成</div>
       {{/if}}
       {{/if}}
+      </div>
       {{/each}}
     </div>
