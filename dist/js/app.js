@@ -10894,7 +10894,7 @@ var Module = function () {
     Request.post('/task/new', formatData(), function (data) {
       if (data.code === 0) {
         console.log('sucess');
-        // location.href = location.origin;
+        location.href = location.origin;
       }
       if (data.code === -2) {
         console.log('fail');
@@ -11072,7 +11072,7 @@ module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      <div data-id={{item.taskId}}>\r\n      {{if item.state >-2}}\r\n      <p class="title">第{{index+1}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n      {{if item.complete <= 100}}\r\n        <div class="complete" style="width:{{item.complete}}%" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      {{if item.complete > 100}}\r\n        <div class="complete" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}</p>\r\n      {{if item.state <1}}\r\n      <div class="full-btn finish" >提前完成</div>\r\n      {{/if}}\r\n      {{/if}}\r\n      </div>\r\n      {{/each}}\r\n    </div>';
+__p += '\r\n    <div id="step4" class="container">\r\n      {{each data.message.taskList as item index}}\r\n      <div data-id={{item.taskId}}>\r\n      <p class="title">第{{index+1}}阶段</p>\r\n      <div class="img-box">\r\n        <p>小树正在茁壮成长中</p>\r\n        <div class="img"></div>\r\n      </div>\r\n      <p>详细目标</p>\r\n      <p>{{item.taskName}}</p>\r\n      <div class="progress">\r\n      {{if item.complete <= 100}}\r\n        <div class="complete" style="width:{{item.complete}}%" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      {{if item.complete > 100}}\r\n        <div class="complete" data-complete={{item.state}}></div>\r\n      {{/if}}\r\n      </div>\r\n      <p>预计耗时</p>\r\n      <p>{{item.timeConsume}}</p>\r\n      {{if item.state ===0}}\r\n      <div class="full-btn finish" >提前完成</div>\r\n      {{/if}}\r\n      </div>\r\n      {{/each}}\r\n    </div>';
 
 }
 return __p
@@ -11490,7 +11490,15 @@ var formatTime = function () {
   };
 
   _e.formatToday = function (date) {
-    return '\n      ' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '\n    ';
+    var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1);
+    var day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate();
+    var hour = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours();
+    var min = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes();
+    var sec = date.getSeconds() >= 10 ? date.getSeconds() : '0' + date.getSeconds();
+    return '\n      ' + date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec + '\n    ';
+    // return `
+    //   ${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}
+    // `
   };
 
   _e.totalSec = function (day, hour, min) {
