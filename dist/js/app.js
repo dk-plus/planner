@@ -11563,6 +11563,8 @@ var Module = function () {
         if (data.code === 0) {
           console.log('登出成功');
           location.reload();
+          Cookie.setCookie('user', '');
+          Cookie.setCookie('pwd', '');
         }
       });
     });
