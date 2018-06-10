@@ -58,6 +58,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -68,23 +93,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;
@@ -227,6 +235,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -237,23 +270,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;
@@ -352,6 +368,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -362,23 +403,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;
@@ -487,6 +511,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -497,23 +546,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;
@@ -632,6 +664,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -642,23 +699,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;
@@ -753,6 +793,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -764,22 +829,137 @@ body {
   background: #d6f1e8;
   overflow: scroll;
 }
-.container .topbar {
+#app {
+  position: absolute;
   width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-.container .topbar span {
-  color: #fff;
+#person {
+  margin-top: 1rem;
+}
+#person .wrapper .person-info {
+  display: flex;
+  flex-direction: column;
+}
+#person .wrapper .person-info div {
   font-size: 0.3rem;
+  color: #333;
+  margin: 0.05rem 0;
+  padding: 0.05rem;
 }
-.container .topbar .back {
+#person .wrapper .person-info .val {
+  background: #e4fbe4;
+  font-size: 0.32rem;
+}
+#person .wrapper .full-btn {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  font-size: 0.35rem;
+  margin: 0.3rem 0.3rem 0.1rem;
+  background: #a51c1c;
+  text-align: center;
+  border-radius: 0.3rem;
+  color: #fff;
+}
+* {
+  font-size: 0.24rem;
+}
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+body,
+div,
+dt,
+dl,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+form,
+a,
+p,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: '\5FAE\8F6F\96C5\9ED1', consolas;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+img {
+  border: none;
+  display: block;
+}
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
   height: 100%;
   display: inline-block;
   width: 0.6rem;
   text-align: center;
+}
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d6f1e8;
+  overflow: scroll;
 }
 #app {
   position: absolute;
@@ -795,6 +975,15 @@ body {
   background-position: 50% 97%;
   background-size: 95%;
   z-index: 0;
+}
+#main .menu {
+  position: fixed;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: url(/img/menu_personal_current.png) no-repeat;
+  background-size: contain;
 }
 #main .items {
   display: flex;
@@ -943,6 +1132,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -953,23 +1167,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;
@@ -1069,6 +1266,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -1079,23 +1301,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;
@@ -1223,6 +1428,31 @@ body {
   bottom: 0;
   position: fixed;
 }
+body .topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.2rem;
+  background: #19845d;
+  line-height: 0.8rem;
+  border-bottom: 0.03rem solid #fff;
+  z-index: 3;
+}
+body .topbar span {
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0 0.1rem;
+  background: #1cb17a;
+  position: absolute;
+  left: 0;
+}
+body .topbar .back {
+  height: 100%;
+  display: inline-block;
+  width: 0.6rem;
+  text-align: center;
+}
 .container {
   position: absolute;
   width: 100%;
@@ -1233,23 +1463,6 @@ body {
   bottom: 0;
   background: #d6f1e8;
   overflow: scroll;
-}
-.container .topbar {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.2rem;
-  background: #53a487;
-  line-height: 1rem;
-}
-.container .topbar span {
-  color: #fff;
-  font-size: 0.3rem;
-}
-.container .topbar .back {
-  height: 100%;
-  display: inline-block;
-  width: 0.6rem;
-  text-align: center;
 }
 #app {
   position: absolute;

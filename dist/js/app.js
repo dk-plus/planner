@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10438,13 +10438,9 @@ return jQuery;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var App = __webpack_require__(2);
-!function () {
-  App.init();
-}();
+var __WEBPACK_AMD_DEFINE_RESULT__;/*!art-template - Template Engine | http://aui.github.com/artTemplate/*/
+!function(){function a(a){return a.replace(t,"").replace(u,",").replace(v,"").replace(w,"").replace(x,"").split(y)}function b(a){return"'"+a.replace(/('|\\)/g,"\\$1").replace(/\r/g,"\\r").replace(/\n/g,"\\n")+"'"}function c(c,d){function e(a){return m+=a.split(/\n/).length-1,k&&(a=a.replace(/\s+/g," ").replace(/<!--[\w\W]*?-->/g,"")),a&&(a=s[1]+b(a)+s[2]+"\n"),a}function f(b){var c=m;if(j?b=j(b,d):g&&(b=b.replace(/\n/g,function(){return m++,"$line="+m+";"})),0===b.indexOf("=")){var e=l&&!/^=[=#]/.test(b);if(b=b.replace(/^=[=#]?|[\s;]*$/g,""),e){var f=b.replace(/\s*\([^\)]+\)/,"");n[f]||/^(include|print)$/.test(f)||(b="$escape("+b+")")}else b="$string("+b+")";b=s[1]+b+s[2]}return g&&(b="$line="+c+";"+b),r(a(b),function(a){if(a&&!p[a]){var b;b="print"===a?u:"include"===a?v:n[a]?"$utils."+a:o[a]?"$helpers."+a:"$data."+a,w+=a+"="+b+",",p[a]=!0}}),b+"\n"}var g=d.debug,h=d.openTag,i=d.closeTag,j=d.parser,k=d.compress,l=d.escape,m=1,p={$data:1,$filename:1,$utils:1,$helpers:1,$out:1,$line:1},q="".trim,s=q?["$out='';","$out+=",";","$out"]:["$out=[];","$out.push(",");","$out.join('')"],t=q?"$out+=text;return $out;":"$out.push(text);",u="function(){var text=''.concat.apply('',arguments);"+t+"}",v="function(filename,data){data=data||$data;var text=$utils.$include(filename,data,$filename);"+t+"}",w="'use strict';var $utils=this,$helpers=$utils.$helpers,"+(g?"$line=0,":""),x=s[0],y="return new String("+s[3]+");";r(c.split(h),function(a){a=a.split(i);var b=a[0],c=a[1];1===a.length?x+=e(b):(x+=f(b),c&&(x+=e(c)))});var z=w+x+y;g&&(z="try{"+z+"}catch(e){throw {filename:$filename,name:'Render Error',message:e.message,line:$line,source:"+b(c)+".split(/\\n/)[$line-1].replace(/^\\s+/,'')};}");try{var A=new Function("$data","$filename",z);return A.prototype=n,A}catch(a){throw a.temp="function anonymous($data,$filename) {"+z+"}",a}}var d=function(a,b){return"string"==typeof b?q(b,{filename:a}):g(a,b)};d.version="3.0.0",d.config=function(a,b){e[a]=b};var e=d.defaults={openTag:"<%",closeTag:"%>",escape:!0,cache:!0,compress:!1,parser:null},f=d.cache={};d.render=function(a,b){return q(a)(b)};var g=d.renderFile=function(a,b){var c=d.get(a)||p({filename:a,name:"Render Error",message:"Template not found"});return b?c(b):c};d.get=function(a){var b;if(f[a])b=f[a];else if("object"==typeof document){var c=document.getElementById(a);if(c){var d=(c.value||c.innerHTML).replace(/^\s*|\s*$/g,"");b=q(d,{filename:a})}}return b};var h=function(a,b){return"string"!=typeof a&&(b=typeof a,"number"===b?a+="":a="function"===b?h(a.call(a)):""),a},i={"<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","&":"&#38;"},j=function(a){return i[a]},k=function(a){return h(a).replace(/&(?![\w#]+;)|[<>"']/g,j)},l=Array.isArray||function(a){return"[object Array]"==={}.toString.call(a)},m=function(a,b){var c,d;if(l(a))for(c=0,d=a.length;c<d;c++)b.call(a,a[c],c,a);else for(c in a)b.call(a,a[c],c)},n=d.utils={$helpers:{},$include:g,$string:h,$escape:k,$each:m};d.helper=function(a,b){o[a]=b};var o=d.helpers=n.$helpers;d.onerror=function(a){var b="Template Error\n\n";for(var c in a)b+="<"+c+">\n"+a[c]+"\n\n";"object"==typeof console&&console.error(b)};var p=function(a){return d.onerror(a),function(){return"{Template Error}"}},q=d.compile=function(a,b){function d(c){try{return new i(c,h)+""}catch(d){return b.debug?p(d)():(b.debug=!0,q(a,b)(c))}}b=b||{};for(var g in e)void 0===b[g]&&(b[g]=e[g]);var h=b.filename;try{var i=c(a,b)}catch(a){return a.filename=h||"anonymous",a.name="Syntax Error",p(a)}return d.prototype=i.prototype,d.toString=function(){return i.toString()},h&&b.cache&&(f[h]=d),d},r=n.$each,s="break,case,catch,continue,debugger,default,delete,do,else,false,finally,for,function,if,in,instanceof,new,null,return,switch,this,throw,true,try,typeof,var,void,while,with,abstract,boolean,byte,char,class,const,double,enum,export,extends,final,float,goto,implements,import,int,interface,long,native,package,private,protected,public,short,static,super,synchronized,throws,transient,volatile,arguments,let,yield,undefined",t=/\/\*[\w\W]*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|"(?:[^"\\]|\\[\w\W])*"|'(?:[^'\\]|\\[\w\W])*'|\s*\.\s*[$\w\.]+/g,u=/[^\w$]+/g,v=new RegExp(["\\b"+s.replace(/,/g,"\\b|\\b")+"\\b"].join("|"),"g"),w=/^\d[^,]*|,\d[^,]*/g,x=/^,+|,+$/g,y=/^$|,+/;e.openTag="{{",e.closeTag="}}";var z=function(a,b){var c=b.split(":"),d=c.shift(),e=c.join(":")||"";return e&&(e=", "+e),"$helpers."+d+"("+a+e+")"};e.parser=function(a,b){a=a.replace(/^\s/,"");var c=a.split(" "),e=c.shift(),f=c.join(" ");switch(e){case"if":a="if("+f+"){";break;case"else":c="if"===c.shift()?" if("+c.join(" ")+")":"",a="}else"+c+"{";break;case"/if":a="}";break;case"each":var g=c[0]||"$data",h=c[1]||"as",i=c[2]||"$value",j=c[3]||"$index",k=i+","+j;"as"!==h&&(g="[]"),a="$each("+g+",function("+k+"){";break;case"/each":a="});";break;case"echo":a="print("+f+");";break;case"print":case"include":a=e+"("+c.join(",")+");";break;default:if(/^\s*\|\s*[\w\$]/.test(f)){var l=!0;0===a.indexOf("#")&&(a=a.substr(1),l=!1);for(var m=0,n=a.split("|"),o=n.length,p=n[m++];m<o;m++)p=z(p,n[m]);a=(l?"=":"=#")+p}else a=d.helpers[e]?"=#"+e+"("+c.join(",")+");":"="+a}return a}, true?!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(){return d}).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"undefined"!=typeof exports?module.exports=d:this.template=d}();
 
 /***/ }),
 /* 2 */
@@ -10454,18 +10450,356 @@ var App = __webpack_require__(2);
 
 
 var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
 
-var Login = __webpack_require__(44);
-var Main = __webpack_require__(39);
+var _e = {};
 
-var Cookie = __webpack_require__(48);
-var Route = __webpack_require__(5);
-var Request = __webpack_require__(6);
-var Storage = __webpack_require__(43);
+var PSD_WIDTH = 720;
+var FONT_SIZE = 50;
+var TIMES = 2;
 
-__webpack_require__(7);
+function init(psdWidth, fontSize, times) {
+  if (psdWidth) {
+    PSD_WIDTH = psdWidth;
+  }
+  if (fontSize) {
+    FONT_SIZE = fontSize;
+  }
+  if (times) {
+    TIMES = times;
+  }
+
+  setFontSize();
+
+  window.onresize = function () {
+    setFontSize();
+  };
+}
+function setFontSize() {
+  var clientWidth = document.documentElement.clientWidth;
+  document.documentElement.style.fontSize = clientWidth / (PSD_WIDTH / TIMES) * FONT_SIZE + 'px';
+}
+
+module.exports = {
+  init: init
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+
+var request = function () {
+
+  function get(url, callbackSucess, callbackError) {
+    $.ajax({
+      url: url,
+      method: 'GET',
+      success: callbackSucess,
+      error: callbackError
+    });
+  }
+
+  function post(url, data, callbackSucess, callbackError) {
+    $.ajax({
+      url: url,
+      method: 'POST',
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      success: callbackSucess,
+      error: callbackError
+    });
+  }
+
+  return {
+    get: get,
+    post: post
+  };
+}();
+
+module.exports = request;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Storage = function () {
+  var _e = {};
+  _e.set = function (key, item) {
+    localStorage.setItem(key, item);
+  };
+  _e.get = function (key) {
+    localStorage.getItem(key);
+  };
+  _e.delete = function (key) {
+    localStorage.removeItem(key);
+  };
+  _e.clear = function () {
+    localStorage.clear();
+  };
+  _e.init = function () {};
+  return _e;
+}();
+module.exports = Storage;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
+
+var Route = __webpack_require__(6);
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
+
+// const Step4 = require('../step_4/index.js');
+var Person = __webpack_require__(53);
+
+__webpack_require__(28);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    Rem.init();
+    Request.get('/task/select', function (data) {
+      obj.data = data;
+      render();
+      $('.mask').on('click', getTaskId);
+    });
+    $('body').on('click', '.menu', function () {
+      Person.init();
+    });
+    // Route.init();
+  };
+
+  function getTaskId(e) {
+    var id = $(e.target).data('url');
+    // Request.get(id, (data) => {
+    Storage.set('taskId', id);
+    //   console.log(localStorage);
+    //   console.log(data);
+    // });
+  }
+
+  function render() {
+    var tpl = __webpack_require__(29)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(1);
+
+var Route = function () {
+  var _e = {
+    routeBtn: '[data-route]',
+    page: '#app'
+  };
+
+  var route = {
+    '/': __webpack_require__(5),
+    '/step1': __webpack_require__(13),
+    '/step2': __webpack_require__(16),
+    '/step3': __webpack_require__(19),
+    '/step4': __webpack_require__(22),
+    '/step5': __webpack_require__(25)
+  };
+
+  _e.back = function () {
+    window.history.back();
+  };
+
+  _e.goTo = function (path) {
+    window.history.pushState({
+      path: path
+    }, {}, path);
+  };
+
+  _e.redirect = function (path) {
+    window.history.replaceState({
+      path: path
+    }, {}, path);
+  };
+
+  _e.init = function () {
+    $(window).on('popstate', function (e) {
+      e.preventDefault();
+      console.log(e.state);
+      redirect(location.pathname);
+    });
+    $('body').on('click', _e.routeBtn, function (e) {
+      var path = $(e.target).data('route');
+      _e.goTo(path);
+      redirect(path);
+    });
+  };
+
+  function redirect(path) {
+    if (path === '/') {
+      location.href = location.origin;
+    }
+    route[path].init();
+  }
+
+  return _e;
+}();
+module.exports = Route;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cookie = function () {
+  var _e = {};
+
+  _e.setCookie = function (key, value) {
+    var cookieText = encodeURIComponent(key) + '=' + encodeURIComponent(value);
+    document.cookie = cookieText;
+  };
+
+  _e.getCookie = function (key) {
+    var cookieKey = encodeURIComponent(key) + '=',
+        cookieStart = document.cookie.indexOf(cookieKey),
+        cookieValue = null;
+
+    if (cookieStart > -1) {
+      var cookieEnd = document.cookie.indexOf(';', cookieStart);
+      if (cookieEnd == -1) {
+        cookieEnd = document.cookie.length;
+      }
+      cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieKey.length, cookieEnd));
+    }
+    return cookieValue;
+  };
+
+  _e.unsetCookie = function (key) {
+    var cookieText = encodeURIComponent(key) + '=';
+    document.cookie = cookieText;
+  };
+
+  _e.init = function () {};
+
+  return _e;
+}();
+
+module.exports = Cookie;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var formatTime = function () {
+  var _e = {};
+
+  _e.dayToSec = function (day) {
+    return day * 24 * 60 * 60 * 1000;
+  };
+
+  _e.hourToSec = function (hour) {
+    return hour * 60 * 60 * 1000;
+  };
+
+  _e.minToSec = function (min) {
+    return min * 60 * 1000;
+  };
+
+  _e.formatToday = function (date) {
+    var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1);
+    var day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate();
+    var hour = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours();
+    var min = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes();
+    var sec = date.getSeconds() >= 10 ? date.getSeconds() : '0' + date.getSeconds();
+    return '\n      ' + date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec + '\n    ';
+    // return `
+    //   ${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}
+    // `
+  };
+
+  _e.totalSec = function (day, hour, min) {
+    return _e.dayToSec(day) + _e.hourToSec(hour) + _e.minToSec(min);
+  };
+
+  _e.secToDays = function (sec) {
+    var str = "";
+    var day = 24 * 60 * 60 * 1000;
+    var hour = 60 * 60 * 1000;
+    var min = 60 * 1000;
+    str = parseInt(sec / day) + '天' + parseInt(sec % day / hour) + '小时' + parseInt(sec % day % hour / min) + '分钟' + parseInt(sec % day % hour % min / 1000) + '秒';
+    return str;
+  };
+
+  _e.init = function () {};
+  return _e;
+}();
+
+module.exports = formatTime;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var App = __webpack_require__(10);
+!function () {
+  App.init();
+}();
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
+
+var Login = __webpack_require__(11);
+var Main = __webpack_require__(5);
+
+var Cookie = __webpack_require__(7);
+var Route = __webpack_require__(6);
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
+
+__webpack_require__(34);
 
 var Module = function () {
   var _e = {
@@ -10514,7 +10848,7 @@ var Module = function () {
   }
 
   function render() {
-    var tpl = __webpack_require__(8)();
+    var tpl = __webpack_require__(35)();
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
@@ -10525,201 +10859,157 @@ var Module = function () {
 module.exports = Module;
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_RESULT__;/*!art-template - Template Engine | http://aui.github.com/artTemplate/*/
-!function(){function a(a){return a.replace(t,"").replace(u,",").replace(v,"").replace(w,"").replace(x,"").split(y)}function b(a){return"'"+a.replace(/('|\\)/g,"\\$1").replace(/\r/g,"\\r").replace(/\n/g,"\\n")+"'"}function c(c,d){function e(a){return m+=a.split(/\n/).length-1,k&&(a=a.replace(/\s+/g," ").replace(/<!--[\w\W]*?-->/g,"")),a&&(a=s[1]+b(a)+s[2]+"\n"),a}function f(b){var c=m;if(j?b=j(b,d):g&&(b=b.replace(/\n/g,function(){return m++,"$line="+m+";"})),0===b.indexOf("=")){var e=l&&!/^=[=#]/.test(b);if(b=b.replace(/^=[=#]?|[\s;]*$/g,""),e){var f=b.replace(/\s*\([^\)]+\)/,"");n[f]||/^(include|print)$/.test(f)||(b="$escape("+b+")")}else b="$string("+b+")";b=s[1]+b+s[2]}return g&&(b="$line="+c+";"+b),r(a(b),function(a){if(a&&!p[a]){var b;b="print"===a?u:"include"===a?v:n[a]?"$utils."+a:o[a]?"$helpers."+a:"$data."+a,w+=a+"="+b+",",p[a]=!0}}),b+"\n"}var g=d.debug,h=d.openTag,i=d.closeTag,j=d.parser,k=d.compress,l=d.escape,m=1,p={$data:1,$filename:1,$utils:1,$helpers:1,$out:1,$line:1},q="".trim,s=q?["$out='';","$out+=",";","$out"]:["$out=[];","$out.push(",");","$out.join('')"],t=q?"$out+=text;return $out;":"$out.push(text);",u="function(){var text=''.concat.apply('',arguments);"+t+"}",v="function(filename,data){data=data||$data;var text=$utils.$include(filename,data,$filename);"+t+"}",w="'use strict';var $utils=this,$helpers=$utils.$helpers,"+(g?"$line=0,":""),x=s[0],y="return new String("+s[3]+");";r(c.split(h),function(a){a=a.split(i);var b=a[0],c=a[1];1===a.length?x+=e(b):(x+=f(b),c&&(x+=e(c)))});var z=w+x+y;g&&(z="try{"+z+"}catch(e){throw {filename:$filename,name:'Render Error',message:e.message,line:$line,source:"+b(c)+".split(/\\n/)[$line-1].replace(/^\\s+/,'')};}");try{var A=new Function("$data","$filename",z);return A.prototype=n,A}catch(a){throw a.temp="function anonymous($data,$filename) {"+z+"}",a}}var d=function(a,b){return"string"==typeof b?q(b,{filename:a}):g(a,b)};d.version="3.0.0",d.config=function(a,b){e[a]=b};var e=d.defaults={openTag:"<%",closeTag:"%>",escape:!0,cache:!0,compress:!1,parser:null},f=d.cache={};d.render=function(a,b){return q(a)(b)};var g=d.renderFile=function(a,b){var c=d.get(a)||p({filename:a,name:"Render Error",message:"Template not found"});return b?c(b):c};d.get=function(a){var b;if(f[a])b=f[a];else if("object"==typeof document){var c=document.getElementById(a);if(c){var d=(c.value||c.innerHTML).replace(/^\s*|\s*$/g,"");b=q(d,{filename:a})}}return b};var h=function(a,b){return"string"!=typeof a&&(b=typeof a,"number"===b?a+="":a="function"===b?h(a.call(a)):""),a},i={"<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","&":"&#38;"},j=function(a){return i[a]},k=function(a){return h(a).replace(/&(?![\w#]+;)|[<>"']/g,j)},l=Array.isArray||function(a){return"[object Array]"==={}.toString.call(a)},m=function(a,b){var c,d;if(l(a))for(c=0,d=a.length;c<d;c++)b.call(a,a[c],c,a);else for(c in a)b.call(a,a[c],c)},n=d.utils={$helpers:{},$include:g,$string:h,$escape:k,$each:m};d.helper=function(a,b){o[a]=b};var o=d.helpers=n.$helpers;d.onerror=function(a){var b="Template Error\n\n";for(var c in a)b+="<"+c+">\n"+a[c]+"\n\n";"object"==typeof console&&console.error(b)};var p=function(a){return d.onerror(a),function(){return"{Template Error}"}},q=d.compile=function(a,b){function d(c){try{return new i(c,h)+""}catch(d){return b.debug?p(d)():(b.debug=!0,q(a,b)(c))}}b=b||{};for(var g in e)void 0===b[g]&&(b[g]=e[g]);var h=b.filename;try{var i=c(a,b)}catch(a){return a.filename=h||"anonymous",a.name="Syntax Error",p(a)}return d.prototype=i.prototype,d.toString=function(){return i.toString()},h&&b.cache&&(f[h]=d),d},r=n.$each,s="break,case,catch,continue,debugger,default,delete,do,else,false,finally,for,function,if,in,instanceof,new,null,return,switch,this,throw,true,try,typeof,var,void,while,with,abstract,boolean,byte,char,class,const,double,enum,export,extends,final,float,goto,implements,import,int,interface,long,native,package,private,protected,public,short,static,super,synchronized,throws,transient,volatile,arguments,let,yield,undefined",t=/\/\*[\w\W]*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|"(?:[^"\\]|\\[\w\W])*"|'(?:[^'\\]|\\[\w\W])*'|\s*\.\s*[$\w\.]+/g,u=/[^\w$]+/g,v=new RegExp(["\\b"+s.replace(/,/g,"\\b|\\b")+"\\b"].join("|"),"g"),w=/^\d[^,]*|,\d[^,]*/g,x=/^,+|,+$/g,y=/^$|,+/;e.openTag="{{",e.closeTag="}}";var z=function(a,b){var c=b.split(":"),d=c.shift(),e=c.join(":")||"";return e&&(e=", "+e),"$helpers."+d+"("+a+e+")"};e.parser=function(a,b){a=a.replace(/^\s/,"");var c=a.split(" "),e=c.shift(),f=c.join(" ");switch(e){case"if":a="if("+f+"){";break;case"else":c="if"===c.shift()?" if("+c.join(" ")+")":"",a="}else"+c+"{";break;case"/if":a="}";break;case"each":var g=c[0]||"$data",h=c[1]||"as",i=c[2]||"$value",j=c[3]||"$index",k=i+","+j;"as"!==h&&(g="[]"),a="$each("+g+",function("+k+"){";break;case"/each":a="});";break;case"echo":a="print("+f+");";break;case"print":case"include":a=e+"("+c.join(",")+");";break;default:if(/^\s*\|\s*[\w\$]/.test(f)){var l=!0;0===a.indexOf("#")&&(a=a.substr(1),l=!1);for(var m=0,n=a.split("|"),o=n.length,p=n[m++];m<o;m++)p=z(p,n[m]);a=(l?"=":"=#")+p}else a=d.helpers[e]?"=#"+e+"("+c.join(",")+");":"="+a}return a}, true?!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(){return d}).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"undefined"!=typeof exports?module.exports=d:this.template=d}();
-
-/***/ }),
-/* 4 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var $ = __webpack_require__(0);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
 
-var _e = {};
+// const Route = require('../../lib/route.js');
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
+var Cookie = __webpack_require__(7);
 
-var PSD_WIDTH = 720;
-var FONT_SIZE = 50;
-var TIMES = 2;
+var Reg = __webpack_require__(12);
+var Main = __webpack_require__(5);
 
-function init(psdWidth, fontSize, times) {
-  if (psdWidth) {
-    PSD_WIDTH = psdWidth;
-  }
-  if (fontSize) {
-    FONT_SIZE = fontSize;
-  }
-  if (times) {
-    TIMES = times;
-  }
+__webpack_require__(32);
 
-  setFontSize();
-
-  window.onresize = function () {
-    setFontSize();
-  };
-}
-function setFontSize() {
-  var clientWidth = document.documentElement.clientWidth;
-  document.documentElement.style.fontSize = clientWidth / (PSD_WIDTH / TIMES) * FONT_SIZE + 'px';
-}
-
-module.exports = {
-  init: init
-};
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-
-var Route = function () {
+var Module = function () {
   var _e = {
-    routeBtn: '[data-route]',
-    page: '#app'
+    wrapper: '#app',
+    name: '#name',
+    pwd: '#pwd',
+    log: '#log-btn',
+    reg: '#reg-btn'
   };
 
-  var route = {
-    '/': __webpack_require__(39),
-    '/step1': __webpack_require__(16),
-    '/step2': __webpack_require__(22),
-    '/step3': __webpack_require__(26),
-    '/step4': __webpack_require__(30),
-    '/step5': __webpack_require__(34)
-  };
-
-  _e.back = function () {
-    window.history.back();
-  };
-
-  _e.goTo = function (path) {
-    window.history.pushState({
-      path: path
-    }, {}, path);
-  };
-
-  _e.redirect = function (path) {
-    window.history.replaceState({
-      path: path
-    }, {}, path);
-  };
+  var obj = {};
 
   _e.init = function () {
-    $(window).on('popstate', function (e) {
-      e.preventDefault();
-      console.log(e.state);
-      redirect(location.pathname);
+    render();
+    $(_e.log).on('click', function () {
+      var user = {
+        perUser: $(_e.name).val(),
+        perPass: $(_e.pwd).val()
+        // console.log(user);
+      };Request.post('/login', user, function (data) {
+        console.log(data);
+        if (data.code === 0) {
+          Cookie.setCookie('user', user.perUser);
+          Cookie.setCookie('pwd', user.perPass);
+          Main.init();
+        }
+        if (data.code === -2) {
+          console.log('登录失败');
+          $('#pop-up').show();
+          setTimeout(function () {
+            location.href = location.origin;
+          }, 500);
+        }
+      }, function (err) {
+        console.log(err);
+      });
     });
-    $('body').on('click', _e.routeBtn, function (e) {
-      var path = $(e.target).data('route');
-      _e.goTo(path);
-      redirect(path);
+    $(_e.reg).on('click', function () {
+      Reg.init();
     });
   };
 
-  function redirect(path) {
-    if (path === '/') {
-      location.href = location.origin;
-    }
-    route[path].init();
+  function render() {
+    var tpl = __webpack_require__(33)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
   }
 
   return _e;
 }();
-module.exports = Route;
+module.exports = Module;
 
 /***/ }),
-/* 6 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var $ = __webpack_require__(0);
-
-var request = function () {
-
-  function get(url, callbackSucess, callbackError) {
-    $.ajax({
-      url: url,
-      method: 'GET',
-      success: callbackSucess,
-      error: callbackError
-    });
-  }
-
-  function post(url, data, callbackSucess, callbackError) {
-    $.ajax({
-      url: url,
-      method: 'POST',
-      data: JSON.stringify(data),
-      contentType: 'application/json',
-      success: callbackSucess,
-      error: callbackError
-    });
-  }
-
-  return {
-    get: get,
-    post: post
-  };
-}();
-
-module.exports = request;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = function (obj) {
-obj || (obj = {});
-var __t, __p = '';
-with (obj) {
-__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item">\r\n      <div class="avater">\r\n        <div class="image" ></div>\r\n        <div class="mask" \r\n          data-id={{item.taskId}} \r\n          data-route="/step4" \r\n          data-complete="0" \r\n          data-url="/task/{{item.taskId}}" \r\n          style="background-color:\r\n          {{if item.state==1}}#ff5722{{/if}}\r\n          {{if item.state==2}}#4caf50{{/if}}\r\n          "></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：\r\n      {{if item.state === -2}}\r\n      初始化\r\n      {{/if}}\r\n      {{if item.state === 0}}\r\n      进行中\r\n      {{/if}}\r\n      {{if item.state === 1}}\r\n      超时\r\n      {{/if}}\r\n      {{if item.state === 2}}\r\n      已完成\r\n      {{/if}}\r\n      </p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
-
-}
-return __p
-}
-
-/***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
 
 // const Route = require('../../lib/route.js');
-var Request = __webpack_require__(6);
-var Storage = __webpack_require__(43);
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
+var Cookie = __webpack_require__(7);
 
-__webpack_require__(17);
+var Main = __webpack_require__(5);
+
+__webpack_require__(30);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app',
+    name: '#name',
+    nick: '#nick',
+    sign: 'signiture',
+    reg: '#regi-btn'
+  };
+
+  var obj = {};
+
+  _e.init = function () {
+    render();
+    $(_e.reg).on('click', function () {
+      var user = {
+        perUser: $(_e.name).val(),
+        perPass: $(_e.pwd).val(),
+        perName: $(_e.nick).val(),
+        perComment: $(_e.sign).val()
+      };
+      Cookie.setCookie('user', user.perUser);
+      Cookie.setCookie('pwd', user.perPass);
+      // console.log(user);
+      Request.post('/person/add', user, function (data) {
+        console.log(data);
+        Main.init();
+      }, function (err) {
+        console.log(err);
+      });
+    });
+  };
+
+  function render() {
+    var tpl = __webpack_require__(31)();
+    var tplRender = artT.compile(tpl);
+
+    $(_e.wrapper).html(tplRender(obj));
+  }
+
+  return _e;
+}();
+module.exports = Module;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
+
+// const Route = require('../../lib/route.js');
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
+
+__webpack_require__(14);
 
 var Module = function () {
   var _e = {
@@ -10741,7 +11031,7 @@ var Module = function () {
   }
 
   function render() {
-    var tpl = __webpack_require__(18)();
+    var tpl = __webpack_require__(15)();
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
@@ -10752,13 +11042,13 @@ var Module = function () {
 module.exports = Module;
 
 /***/ }),
-/* 17 */
+/* 14 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 18 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = function (obj) {
@@ -10772,24 +11062,21 @@ return __p
 }
 
 /***/ }),
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
 
 // const Route = require('../../lib/route.js');
-var Request = __webpack_require__(6);
-var Storage = __webpack_require__(43);
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
 
-__webpack_require__(23);
+__webpack_require__(17);
 
 var Module = function () {
   var _e = {
@@ -10820,7 +11107,7 @@ var Module = function () {
   }
 
   function render() {
-    var tpl = __webpack_require__(24)();
+    var tpl = __webpack_require__(18)();
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
@@ -10831,13 +11118,13 @@ var Module = function () {
 module.exports = Module;
 
 /***/ }),
-/* 23 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 24 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = function (obj) {
@@ -10851,23 +11138,22 @@ return __p
 }
 
 /***/ }),
-/* 25 */,
-/* 26 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
 
 // const Route = require('../../lib/route.js');
-var Request = __webpack_require__(6);
-var Storage = __webpack_require__(43);
-var FormatTime = __webpack_require__(53);
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
+var FormatTime = __webpack_require__(8);
 
-__webpack_require__(27);
+__webpack_require__(20);
 
 var Module = function () {
   var _e = {
@@ -10949,7 +11235,7 @@ var Module = function () {
   }
 
   function render() {
-    var tpl = __webpack_require__(28)();
+    var tpl = __webpack_require__(21)();
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
@@ -10960,13 +11246,13 @@ var Module = function () {
 module.exports = Module;
 
 /***/ }),
-/* 27 */
+/* 20 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 28 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = function (obj) {
@@ -10980,22 +11266,21 @@ return __p
 }
 
 /***/ }),
-/* 29 */,
-/* 30 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
 
-var Route = __webpack_require__(5);
-var Request = __webpack_require__(6);
-var FormatTime = __webpack_require__(53);
+var Route = __webpack_require__(6);
+var Request = __webpack_require__(3);
+var FormatTime = __webpack_require__(8);
 
-__webpack_require__(31);
+__webpack_require__(23);
 
 var Module = function () {
   var _e = {
@@ -11038,7 +11323,7 @@ var Module = function () {
   }
 
   function render() {
-    var tpl = __webpack_require__(32)();
+    var tpl = __webpack_require__(24)();
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
@@ -11059,13 +11344,13 @@ var Module = function () {
 module.exports = Module;
 
 /***/ }),
-/* 31 */
+/* 23 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 32 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = function (obj) {
@@ -11079,21 +11364,20 @@ return __p
 }
 
 /***/ }),
-/* 33 */,
-/* 34 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
 
-var Route = __webpack_require__(5);
-var Request = __webpack_require__(6);
+var Route = __webpack_require__(6);
+var Request = __webpack_require__(3);
 
-__webpack_require__(35);
+__webpack_require__(26);
 
 var Module = function () {
   var _e = {
@@ -11112,7 +11396,7 @@ var Module = function () {
   };
 
   function render() {
-    var tpl = __webpack_require__(36)();
+    var tpl = __webpack_require__(27)();
     var tplRender = artT.compile(tpl);
 
     $(_e.wrapper).html(tplRender(obj));
@@ -11123,13 +11407,13 @@ var Module = function () {
 module.exports = Module;
 
 /***/ }),
-/* 35 */
+/* 26 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 36 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = function (obj) {
@@ -11143,317 +11427,33 @@ return __p
 }
 
 /***/ }),
-/* 37 */,
-/* 38 */,
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
-
-var Route = __webpack_require__(5);
-var Request = __webpack_require__(6);
-var Storage = __webpack_require__(43);
-
-// const Step4 = require('../step_4/index.js');
-
-__webpack_require__(40);
-
-var Module = function () {
-  var _e = {
-    wrapper: '#app'
-  };
-
-  var obj = {};
-
-  _e.init = function () {
-    Rem.init();
-    Request.get('/task/select', function (data) {
-      obj.data = data;
-      render();
-      $('.mask').on('click', getTaskId);
-    });
-    // Route.init();
-  };
-
-  function getTaskId(e) {
-    var id = $(e.target).data('url');
-    // Request.get(id, (data) => {
-    Storage.set('taskId', id);
-    //   console.log(localStorage);
-    //   console.log(data);
-    // });
-  }
-
-  function render() {
-    var tpl = __webpack_require__(41)();
-    var tplRender = artT.compile(tpl);
-
-    $(_e.wrapper).html(tplRender(obj));
-  }
-
-  return _e;
-}();
-module.exports = Module;
-
-/***/ }),
-/* 40 */
+/* 28 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 41 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = function (obj) {
 obj || (obj = {});
 var __t, __p = '';
 with (obj) {
-__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item">\r\n      <div class="avater">\r\n        <div class="image" ></div>\r\n        <div class="mask" \r\n          data-id={{item.taskId}} \r\n          data-route="/step4" \r\n          data-complete="0" \r\n          data-url="/task/{{item.taskId}}" \r\n          style="background-color:\r\n          {{if item.state==1}}#ff5722{{/if}}\r\n          {{if item.state==2}}#4caf50{{/if}}\r\n          "></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：\r\n      {{if item.state === -2}}\r\n      初始化\r\n      {{/if}}\r\n      {{if item.state === 0}}\r\n      进行中\r\n      {{/if}}\r\n      {{if item.state === 1}}\r\n      超时\r\n      {{/if}}\r\n      {{if item.state === 2}}\r\n      已完成\r\n      {{/if}}\r\n      </p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
+__p += '\r\n<div id="main" class="container">\r\n  <div class="menu"></div>\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item">\r\n      <div class="avater">\r\n        <div class="image" ></div>\r\n        <div class="mask" \r\n          data-id={{item.taskId}} \r\n          data-route="/step4" \r\n          data-complete="0" \r\n          data-url="/task/{{item.taskId}}" \r\n          style="background-color:\r\n          {{if item.state==1}}#ff5722{{/if}}\r\n          {{if item.state==2}}#4caf50{{/if}}\r\n          "></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：\r\n      {{if item.state === -2}}\r\n      初始化\r\n      {{/if}}\r\n      {{if item.state === 0}}\r\n      进行中\r\n      {{/if}}\r\n      {{if item.state === 1}}\r\n      超时\r\n      {{/if}}\r\n      {{if item.state === 2}}\r\n      已完成\r\n      {{/if}}\r\n      </p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
 
 }
 return __p
 }
 
 /***/ }),
-/* 42 */,
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Storage = function () {
-  var _e = {};
-  _e.set = function (key, item) {
-    localStorage.setItem(key, item);
-  };
-  _e.get = function (key) {
-    localStorage.getItem(key);
-  };
-  _e.delete = function (key) {
-    localStorage.removeItem(key);
-  };
-  _e.clear = function () {
-    localStorage.clear();
-  };
-  _e.init = function () {};
-  return _e;
-}();
-module.exports = Storage;
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
-
-// const Route = require('../../lib/route.js');
-var Request = __webpack_require__(6);
-var Storage = __webpack_require__(43);
-var Cookie = __webpack_require__(48);
-
-var Reg = __webpack_require__(49);
-var Main = __webpack_require__(39);
-
-__webpack_require__(45);
-
-var Module = function () {
-  var _e = {
-    wrapper: '#app',
-    name: '#name',
-    pwd: '#pwd',
-    log: '#log-btn',
-    reg: '#reg-btn'
-  };
-
-  var obj = {};
-
-  _e.init = function () {
-    render();
-    $(_e.log).on('click', function () {
-      var user = {
-        perUser: $(_e.name).val(),
-        perPass: $(_e.pwd).val()
-        // console.log(user);
-      };Request.post('/login', user, function (data) {
-        console.log(data);
-        if (data.code === 0) {
-          Cookie.setCookie('user', user.perUser);
-          Cookie.setCookie('pwd', user.perPass);
-          Main.init();
-        }
-        if (data.code === -2) {
-          console.log('登录失败');
-          $('#pop-up').show();
-          setTimeout(function () {
-            location.href = location.origin;
-          }, 500);
-        }
-      }, function (err) {
-        console.log(err);
-      });
-    });
-    $(_e.reg).on('click', function () {
-      Reg.init();
-    });
-  };
-
-  function render() {
-    var tpl = __webpack_require__(46)();
-    var tplRender = artT.compile(tpl);
-
-    $(_e.wrapper).html(tplRender(obj));
-  }
-
-  return _e;
-}();
-module.exports = Module;
-
-/***/ }),
-/* 45 */
+/* 30 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-module.exports = function (obj) {
-obj || (obj = {});
-var __t, __p = '';
-with (obj) {
-__p += '<div id="login">\r\n  <input type="text" class="name" id="name" placeholder="账号">\r\n  <input type="password" class="pwd" id="pwd" placeholder="密码">\r\n  <button class="btn log-btn" id="log-btn">登录</button>\r\n  <button class="btn reg-btn" id="reg-btn">注册</button>\r\n</div>\r\n<div id="pop-up">账号或密码错误</div>';
-
-}
-return __p
-}
-
-/***/ }),
-/* 47 */,
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Cookie = function () {
-  var _e = {};
-
-  _e.setCookie = function (key, value) {
-    var cookieText = encodeURIComponent(key) + '=' + encodeURIComponent(value);
-    document.cookie = cookieText;
-  };
-
-  _e.getCookie = function (key) {
-    var cookieKey = encodeURIComponent(key) + '=',
-        cookieStart = document.cookie.indexOf(cookieKey),
-        cookieValue = null;
-
-    if (cookieStart > -1) {
-      var cookieEnd = document.cookie.indexOf(';', cookieStart);
-      if (cookieEnd == -1) {
-        cookieEnd = document.cookie.length;
-      }
-      cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieKey.length, cookieEnd));
-    }
-    return cookieValue;
-  };
-
-  _e.unsetCookie = function (key) {
-    var cookieText = encodeURIComponent(key) + '=';
-    document.cookie = cookieText;
-  };
-
-  _e.init = function () {};
-
-  return _e;
-}();
-
-module.exports = Cookie;
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var $ = __webpack_require__(0);
-var artT = __webpack_require__(3);
-var Rem = __webpack_require__(4);
-
-// const Route = require('../../lib/route.js');
-var Request = __webpack_require__(6);
-var Storage = __webpack_require__(43);
-var Cookie = __webpack_require__(48);
-
-var Main = __webpack_require__(39);
-
-__webpack_require__(50);
-
-var Module = function () {
-  var _e = {
-    wrapper: '#app',
-    name: '#name',
-    nick: '#nick',
-    sign: 'signiture',
-    reg: '#regi-btn'
-  };
-
-  var obj = {};
-
-  _e.init = function () {
-    render();
-    $(_e.reg).on('click', function () {
-      var user = {
-        perUser: $(_e.name).val(),
-        perPass: $(_e.pwd).val(),
-        perName: $(_e.nick).val(),
-        perComment: $(_e.sign).val()
-      };
-      Cookie.setCookie('user', user.perUser);
-      Cookie.setCookie('pwd', user.perPass);
-      // console.log(user);
-      Request.post('/person/add', user, function (data) {
-        console.log(data);
-        Main.init();
-      }, function (err) {
-        console.log(err);
-      });
-    });
-  };
-
-  function render() {
-    var tpl = __webpack_require__(51)();
-    var tplRender = artT.compile(tpl);
-
-    $(_e.wrapper).html(tplRender(obj));
-  }
-
-  return _e;
-}();
-module.exports = Module;
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 51 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = function (obj) {
@@ -11467,6 +11467,62 @@ return __p
 }
 
 /***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '<div id="login">\r\n  <input type="text" class="name" id="name" placeholder="账号">\r\n  <input type="password" class="pwd" id="pwd" placeholder="密码">\r\n  <button class="btn log-btn" id="log-btn">登录</button>\r\n  <button class="btn reg-btn" id="reg-btn">注册</button>\r\n</div>\r\n<div id="pop-up">账号或密码错误</div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '\r\n<div id="main" class="container">\r\n  <div class="items">\r\n  {{each data.message as item}}\r\n    <div class="item">\r\n      <div class="avater">\r\n        <div class="image" ></div>\r\n        <div class="mask" \r\n          data-id={{item.taskId}} \r\n          data-route="/step4" \r\n          data-complete="0" \r\n          data-url="/task/{{item.taskId}}" \r\n          style="background-color:\r\n          {{if item.state==1}}#ff5722{{/if}}\r\n          {{if item.state==2}}#4caf50{{/if}}\r\n          "></div>\r\n        <div class="title">{{item.taskName}}</div>\r\n      </div>\r\n      <p>当前阶段：\r\n      {{if item.state === -2}}\r\n      初始化\r\n      {{/if}}\r\n      {{if item.state === 0}}\r\n      进行中\r\n      {{/if}}\r\n      {{if item.state === 1}}\r\n      超时\r\n      {{/if}}\r\n      {{if item.state === 2}}\r\n      已完成\r\n      {{/if}}\r\n      </p>\r\n    </div>\r\n  {{/each}}\r\n    <div id="add" class="item">\r\n      <div class="avater" data-route="/step1">\r\n        +\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>';
+
+}
+return __p
+}
+
+/***/ }),
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
 /* 52 */,
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -11474,51 +11530,74 @@ return __p
 "use strict";
 
 
-var formatTime = function () {
-  var _e = {};
+var $ = __webpack_require__(0);
+var artT = __webpack_require__(1);
+var Rem = __webpack_require__(2);
 
-  _e.dayToSec = function (day) {
-    return day * 24 * 60 * 60 * 1000;
+// const Route = require('../../lib/route.js');
+var Request = __webpack_require__(3);
+var Storage = __webpack_require__(4);
+var Cookie = __webpack_require__(7);
+
+var Main = __webpack_require__(5);
+
+__webpack_require__(54);
+
+var Module = function () {
+  var _e = {
+    wrapper: '#app'
   };
 
-  _e.hourToSec = function (hour) {
-    return hour * 60 * 60 * 1000;
+  var obj = {};
+
+  _e.init = function () {
+    Request.get('/info', function (data) {
+      obj.data = data.message;
+      // console.log(obj);
+      render();
+    }, function (err) {
+      console.log(err);
+    });
+    $('body').on('click', '.log-out', function () {
+      Request.get('/logout', function (data) {
+        if (data.code === 0) {
+          console.log('登出成功');
+          location.reload();
+        }
+      });
+    });
   };
 
-  _e.minToSec = function (min) {
-    return min * 60 * 1000;
-  };
+  function render() {
+    var tpl = __webpack_require__(55)();
+    var tplRender = artT.compile(tpl);
 
-  _e.formatToday = function (date) {
-    var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1);
-    var day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate();
-    var hour = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours();
-    var min = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes();
-    var sec = date.getSeconds() >= 10 ? date.getSeconds() : '0' + date.getSeconds();
-    return '\n      ' + date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec + '\n    ';
-    // return `
-    //   ${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}
-    // `
-  };
+    $(_e.wrapper).html(tplRender(obj));
+  }
 
-  _e.totalSec = function (day, hour, min) {
-    return _e.dayToSec(day) + _e.hourToSec(hour) + _e.minToSec(min);
-  };
-
-  _e.secToDays = function (sec) {
-    var str = "";
-    var day = 24 * 60 * 60 * 1000;
-    var hour = 60 * 60 * 1000;
-    var min = 60 * 1000;
-    str = parseInt(sec / day) + '天' + parseInt(sec % day / hour) + '小时' + parseInt(sec % day % hour / min) + '分钟' + parseInt(sec % day % hour % min / 1000) + '秒';
-    return str;
-  };
-
-  _e.init = function () {};
   return _e;
 }();
+module.exports = Module;
 
-module.exports = formatTime;
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '<div id="person">\r\n  <div class="wrapper">\r\n    <div class="name person-info">\r\n      <div>昵称：</div>\r\n      <div class="val">{{data.perName}}</div>\r\n    </div>\r\n    <div class="comment person-info">\r\n      <div>签名：</div>\r\n      <div class="val">{{data.perComment}}</div>\r\n    </div>\r\n    <div class="full-btn log-out">退出登录</div>\r\n  </div>\r\n</div>';
+
+}
+return __p
+}
 
 /***/ })
 /******/ ]);

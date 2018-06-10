@@ -7,6 +7,7 @@ const Request = require('../../lib/request.js');
 const Storage = require('../../lib/storage.js');
 
 // const Step4 = require('../step_4/index.js');
+const Person = require('../person/index.js');
 
 require('./index.less');
 
@@ -23,6 +24,9 @@ const Module = (() => {
       obj.data = data;
       render();
       $('.mask').on('click', getTaskId);
+    });
+    $('body').on('click', '.menu',() => {
+      Person.init();
     });
     // Route.init();
   }

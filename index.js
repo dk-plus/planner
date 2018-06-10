@@ -113,6 +113,26 @@ app.post('/person/add', (req, res) => {
   res.send('注册成功');
 });
 
+app.get('/info', (req, res) => {
+  res.send({
+    "code": 0,
+    "message": {
+      "perId": 3,
+      "perUser": "zhang.wu",
+      "perPass": "0204376745",
+      "perName": "hello",//昵称
+      "perComment": "hello"//个人签名
+    }
+  });
+});
+
+app.get('/logout', (req, res) => {
+  res.send({
+    "code": 0,
+    "message": "登出成功"
+  });
+});
+
 app.use((req, res) => {
   res.status(404);
   res.send({

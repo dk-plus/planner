@@ -1,5 +1,6 @@
 
 <div id="main" class="container">
+  <div class="menu"></div>
   <div class="items">
   {{each data.message as item}}
     <div class="item">
